@@ -5,12 +5,14 @@
   "private": true,
   "author": "Prymak Ilya",
   "license": "ISC",
+  "homepage": "https://DameGun.github.io/ModsenShop",
   "scripts": {
     "start": "webpack serve --config webpack.dev.mjs --open",
     "build": "webpack --config webpack.prod.mjs",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "postinstall": "husky"
+    "postinstall": "husky",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -29,6 +31,7 @@
     "css-loader": "^7.1.2",
     "eslint": "8.x",
     "eslint-plugin-react": "^7.34.2",
+    "gh-pages": "^6.1.1",
     "globals": "^15.3.0",
     "html-webpack-plugin": "^5.6.0",
     "husky": "^9.0.11",
