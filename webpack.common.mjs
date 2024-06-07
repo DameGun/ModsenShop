@@ -15,7 +15,7 @@ export default {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './dist/index.html',
+      template: './public/index.html',
     }),
   ],
   module: {
