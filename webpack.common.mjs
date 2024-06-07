@@ -6,20 +6,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default {
-  mode: 'development',
   target: 'web',
   entry: './src/index.tsx',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: 'images/[name][ext]',
-    clean: true,
-  },
-  devtool: 'inline-source-map',
-  devServer: {
-    static: path.resolve(__dirname, 'dist'),
-    port: 9000,
-    hot: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
