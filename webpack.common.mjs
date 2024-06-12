@@ -1,6 +1,7 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -35,11 +36,12 @@ export default {
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        type: 'asset/resource',
+        type: 'asset/inline',
       },
     ],
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js'],
+    plugins: [new TsconfigPathsPlugin()],
   },
 };
