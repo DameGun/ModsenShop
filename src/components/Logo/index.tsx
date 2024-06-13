@@ -6,8 +6,8 @@ const StyledLogo = styled(NavLink)`
   font-family: 'Allerta Stencil';
   font-weight: 400;
   font-size: 35px;
-
   padding: 0;
+  user-select: none;
 
   & > span:nth-child(2) {
     color: ${(props) => props.theme.colors.mainColors.black};

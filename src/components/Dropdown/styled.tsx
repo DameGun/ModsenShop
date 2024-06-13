@@ -1,5 +1,5 @@
 import Icon from '@components/Icon';
-import { Heading3 } from '@components/Text';
+import { GAP_LG } from '@constants/styles';
 import styled from 'styled-components';
 
 export const StyledDropdown = styled.div`
@@ -19,9 +19,9 @@ export const DropdownContainer = styled.div`
   left: 0;
   width: 100vh;
   padding: 2em 3%;
+  gap: ${GAP_LG};
+  z-index: 10;
   background-color: ${(props) => props.theme.colors.mainColors.white};
 `;
 
 export const DropdownButton = styled(Icon)``;
-
-export const DropdownItem = styled(Heading3)``;

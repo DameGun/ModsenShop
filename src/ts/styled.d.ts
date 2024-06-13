@@ -1,14 +1,33 @@
+import { CommonFonts, MobileFonts, FontWeight } from '@constants/styles';
 import 'styled-components';
 
 export interface ThemeMedia {
   mobile: string;
 }
 
+export interface Font {
+  weight?: FontWeight;
+  size: string;
+  lineHeight?: string;
+}
+
+export type Fonts<T> = {
+  [P in keyof T]: Font;
+};
+
+export interface ThemeFonts {
+  default: Fonts<typeof CommonFonts>;
+  mobile: Fonts<typeof MobileFonts>;
+}
+
 export interface ThemeColors {
   mainColors: {
     accent: string;
     white: string;
+    whiteAlpha: string;
     black: string;
+    blackAlpha200: string;
+    blackAlpha700: string;
   };
   neutralColors: {
     lightGray: string;
@@ -27,5 +46,7 @@ declare module 'styled-components' {
     colors: ThemeColors;
 
     media: ThemeMedia;
+
+    fonts: ThemeFonts;
   }
 }

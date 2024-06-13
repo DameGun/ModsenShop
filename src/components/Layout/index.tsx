@@ -1,20 +1,21 @@
 import Header from '@components/Header';
 import { Outlet } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
-import { useAppSelector } from '@hooks/redux';
-import { selectCurrentTheme } from '@store/theme/themeSlice';
-import { darkTheme, lightTheme } from '@styles/theme';
 import GlobalStyles from '@styles/global';
+import ThemeContextProvider from '@components/ThemeProvider';
+import Footer from '@components/Footer';
+import styled from 'styled-components';
+
+const MainContainer = styled.main``;
 
 export default function Layout() {
-  const currentTheme = useAppSelector(selectCurrentTheme);
   return (
-    <ThemeProvider theme={currentTheme == 'LIGHT' ? lightTheme : darkTheme}>
+    <ThemeContextProvider>
       <GlobalStyles />
       <Header />
-      <main>
+      <MainContainer>
         <Outlet />
-      </main>
-    </ThemeProvider>
+      </MainContainer>
+      <Footer />
+    </ThemeContextProvider>
   );
 }
