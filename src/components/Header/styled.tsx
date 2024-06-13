@@ -1,4 +1,5 @@
 import { StyledDropdown } from '@components/Dropdown/styled';
+import { GAP_LG, GAP_MD, GAP_SM, TRANSITION_TIME_MD } from '@constants/styles';
 import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
@@ -16,10 +17,10 @@ export const StyledHeader = styled.header`
 export const Nav = styled.nav`
   display: flex;
   align-items: center;
-  gap: 2em;
+  gap: ${GAP_LG};
 
   @media ${(props) => props.theme.media.mobile} {
-    gap: 1em;
+    gap: ${GAP_MD};
 
     & > :not(${StyledDropdown}, .nav-cart) {
       display: none;
@@ -30,14 +31,14 @@ export const Nav = styled.nav`
 export const ThemeSwitch = styled.label`
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: ${GAP_SM};
   cursor: pointer;
 
   border-left: 2px solid ${(props) => props.theme.colors.neutralColors.gray};
   padding-left: 1em;
 `;
 
-export const Input = styled.input`
+export const SwitchButton = styled.input`
   opacity: 0;
   position: absolute;
 
@@ -56,7 +57,7 @@ export const Switch = styled.div`
   height: 28px;
   background: ${(props) => props.theme.colors.neutralColors.gray};
   border-radius: 28px;
-  transition: 300ms all;
+  transition: all ${TRANSITION_TIME_MD};
 
   &:before {
     content: '';
@@ -68,6 +69,6 @@ export const Switch = styled.div`
     left: 2px;
     background: ${(props) => props.theme.colors.mainColors.white};
     transform: translate(0, -50%);
-    transition: 300ms all;
+    transition: all ${TRANSITION_TIME_MD};
   }
 `;

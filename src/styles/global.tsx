@@ -3,11 +3,14 @@ import fonts from './fonts';
 
 export default createGlobalStyle`
     ${fonts}
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
     
     body {
         background-color: ${(props) => props.theme.colors.mainColors.white};
-        margin: 0;
-        padding: 0;
         font-family: 'DM Sans';
     }
 
@@ -18,12 +21,8 @@ export default createGlobalStyle`
 
     #root {
         display: flex;
-        flex: 1;
-        flex-grow: 1;
         flex-direction: column;
-        justify-self: center;
-        max-width: 85%;
-        height: 100%;
+        max-width: 75%;
         margin: 0 auto;
     }
 

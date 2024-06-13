@@ -1,15 +1,16 @@
-import { useAppDispatch } from '@hooks/redux';
-import { changeTheme } from '@store/theme/themeSlice';
-import { Input, Nav, StyledHeader, Switch, ThemeSwitch } from './styled';
+import { useAppDispatch, useAppSelector } from '@hooks/redux';
+import { changeTheme, selectCurrentTheme } from '@store/theme/themeSlice';
+import { SwitchButton, Nav, StyledHeader, Switch, ThemeSwitch } from './styled';
 import Icon from '@components/Icon';
 import { HoverableNavLink } from '@components/Link';
 import Logo from '@components/Logo';
 import { searchIcon, cartIcon } from '@assets/icons';
 import Dropdown from '@components/Dropdown';
-import { DropdownItem } from '@components/Dropdown/styled';
+import Text from '@components/Text';
 
 export default function Header() {
   const dispatch = useAppDispatch();
+  const currentColorMode = useAppSelector(selectCurrentTheme);
 
   return (
     <StyledHeader>
@@ -17,7 +18,11 @@ export default function Header() {
       <Nav>
         <HoverableNavLink to='shop'>Shop</HoverableNavLink>
         <ThemeSwitch>
-          <Input type='checkbox' onClick={() => dispatch(changeTheme())} />
+          <SwitchButton
+            type='checkbox'
+            checked={currentColorMode == 'DARK'}
+            onClick={() => dispatch(changeTheme())}
+          />
           <Switch />
         </ThemeSwitch>
         <HoverableNavLink to='search'>
@@ -27,13 +32,13 @@ export default function Header() {
           <Icon src={cartIcon} alt='Shopping Cart' />
         </HoverableNavLink>
         <Dropdown>
-          <DropdownItem>Home</DropdownItem>
-          <DropdownItem>Shop</DropdownItem>
-          <DropdownItem>About</DropdownItem>
-          <DropdownItem>Blog</DropdownItem>
-          <DropdownItem>Help</DropdownItem>
-          <DropdownItem>Contact</DropdownItem>
-          <DropdownItem>Search</DropdownItem>
+          <Text $level='heading1'>Home</Text>
+          <Text $level='heading1'>Shop</Text>
+          <Text $level='heading1'>About</Text>
+          <Text $level='heading1'>Blog</Text>
+          <Text $level='heading1'>Help</Text>
+          <Text $level='heading1'>Contact</Text>
+          <Text $level='heading1'>Search</Text>
         </Dropdown>
       </Nav>
     </StyledHeader>

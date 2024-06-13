@@ -7,12 +7,12 @@ export enum IconSize {
 }
 
 export interface IconProps {
-  iconsize?: IconSize;
+  $iconsize?: IconSize;
 }
 
 const Icon = styled.img<IconProps>`
-  width: ${(props) => props.iconsize || IconSize.md};
-  height: ${(props) => props.iconsize || IconSize.md};
+  width: ${(props) => props.$iconsize || IconSize.md};
+  height: ${(props) => props.$iconsize || IconSize.md};
   filter: invert(${(props) => (props.theme.mode == 'DARK' ? 1 : 0)});
 `;
 

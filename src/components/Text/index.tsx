@@ -1,46 +1,49 @@
-import styled from 'styled-components';
+import { CommonFonts, MobileFonts } from '@constants/styles';
+import { ReactNode } from 'react';
+import styled, { css } from 'styled-components';
 
-export const Heading1 = styled.h1`
-  font-size: 33px;
-  font-weight: 500;
+const Truncate = css`
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 
-export const Heading2 = styled.h2`
-  font-size: 26px;
-  font-weight: 400;
-  line-height: 35px;
-`;
+export interface TextProps {
+  $level: keyof typeof CommonFonts;
+  $isTruncated?: boolean;
+  $color?: string;
+  $uppercase?: boolean;
+  children: ReactNode;
+  className?: string;
+}
 
-export const Heading3 = styled.h3`
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 26px;
-`;
+export default function Text({ children, ...props }: TextProps) {
+  return (
+    <StyledHeading as={CommonFonts[props.$level]} {...props}>
+      {children}
+    </StyledHeading>
+  );
+}
 
-export const Heading4 = styled.h4`
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 20px;
-`;
+const StyledHeading = styled.div<TextProps>`
+  font-size: ${(props) => props.theme.fonts.default[props.$level].size};
+  font-weight: ${(props) => props.theme.fonts.default[props.$level].weight};
+  line-height: ${(props) => props.theme.fonts.default[props.$level].lineHeight};
 
-export const Heading5 = styled.h5`
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 27px;
-`;
+  ${(props) =>
+    props.$level in MobileFonts &&
+    css`
+      @media ${props.theme.media.mobile} {
+        font-size: ${props.theme.fonts.mobile[props.$level as keyof typeof MobileFonts].size};
+        font-weight: ${props.theme.fonts.mobile[props.$level as keyof typeof MobileFonts].weight};
+        line-height: ${props.theme.fonts.mobile[props.$level as keyof typeof MobileFonts]
+          .lineHeight};
+      }
+    `}
 
-export const BodyLarge = styled.p`
-  font-size: 16px;
-  font-weight: 700;
-`;
+  ${(props) => props.$isTruncated && Truncate}
 
-export const BodyMedium = styled.p`
-  font-size: 14px;
-  font-weight: 400;
-`;
+  text-transform: ${(props) => props.$uppercase && 'uppercase'};
 
-export const BodySmall = styled.p`
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 20px;
+  color: ${(props) => props.$color};
 `;

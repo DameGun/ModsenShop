@@ -2,6 +2,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
+import DotenvWebpackPlugin from 'dotenv-webpack';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -17,6 +18,9 @@ export default {
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
+    }),
+    new DotenvWebpackPlugin({
+      systemvars: true,
     }),
   ],
   module: {
