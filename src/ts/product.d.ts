@@ -1,15 +1,23 @@
 export type Category = string;
 
-export type QueryParams = {
+export type FilterParams = {
   sort?: 'desc' | 'asc';
-  limit: number;
+  category?: string;
+  limit?: number;
+  searchTerm?: string;
+  priceConstants?: [number, number];
+  priceSortValues?: [number, number];
 };
 
 export type Product = {
   id: number;
   title: string;
-  price: string;
+  price: number;
   category: Category;
   description: string;
   image: string;
+  rating: {
+    rate: number;
+    count: number;
+  };
 };

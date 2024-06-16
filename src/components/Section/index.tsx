@@ -10,6 +10,11 @@ export const SectionHeader = styled.div`
 
   margin-top: 3em;
   margin-bottom: 2em;
+
+  @media ${(props) => props.theme.media.mobile} {
+    margin-top: 2em;
+    margin-bottom: 1em;
+  }
 `;
 
 export default Section;

@@ -7,11 +7,11 @@ export default createGlobalStyle`
     * {
         margin: 0;
         padding: 0;
+        font-family: 'DM Sans';
     }
     
     body {
         background-color: ${(props) => props.theme.colors.mainColors.white};
-        font-family: 'DM Sans';
     }
 
     a, li, body {
@@ -23,12 +23,14 @@ export default createGlobalStyle`
         display: flex;
         flex-direction: column;
         max-width: 75%;
+        min-height: 100vh;
         margin: 0 auto;
     }
 
     @media ${(props) => props.theme.media.mobile} {
         #root {
             max-width: 95%;
+            margin: 0 auto;
         }
     }
 `;

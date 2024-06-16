@@ -1,7 +1,7 @@
 import { GAP_LG, GAP_MD, GAP_XL } from '@constants/styles';
 import styled from 'styled-components';
 
-export const FooterContainer = styled.div`
+export const FooterContainer = styled.footer`
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr 1fr;

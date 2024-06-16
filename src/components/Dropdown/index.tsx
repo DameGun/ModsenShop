@@ -1,22 +1,32 @@
-import { ReactNode, useState } from 'react';
-import { DropdownButton, DropdownContainer, StyledDropdown } from './styled';
-import { closeIcon, dropdownIcon } from '@assets/icons';
+import { DropdownContainer, StyledDropdown } from './styled';
+import { CloseIcon, DropdownIcon } from '@assets/icons';
+import IconButton from '@components/IconButton';
+import Icon from '@components/Icon';
+import React from 'react';
 
 interface DropdownProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
 export default function Dropdown({ children }: DropdownProps) {
-  const [open, setOpen] = useState<boolean>(false);
+  const [open, setOpen] = React.useState<boolean>(false);
 
   return (
     <StyledDropdown>
-      <DropdownButton
-        src={open ? closeIcon : dropdownIcon}
-        alt='Dropdown'
-        onClick={() => setOpen(!open)}
-      />
-      {open && <DropdownContainer>{children}</DropdownContainer>}
+      <IconButton onClick={() => setOpen(!open)} $mobileVisible>
+        <Icon src={open ? <CloseIcon /> : <DropdownIcon />} $iconsize='lg' />
+      </IconButton>
+      {open && (
+        <DropdownContainer>
+          {React.Children.map(children, (child) => {
+            if (!React.isValidElement(child)) {
+              return child;
+            }
+            const dropdownItem: React.ReactElement = child;
+            return React.cloneElement(dropdownItem, { onClick: () => setOpen(false) });
+          })}
+        </DropdownContainer>
+      )}
     </StyledDropdown>
   );
 }

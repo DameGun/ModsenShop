@@ -1,12 +1,14 @@
-import { NavLink } from '@components/Link';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledLogo = styled(NavLink)`
   color: ${(props) => props.theme.colors.mainColors.accent};
-  font-family: 'Allerta Stencil';
-  font-weight: 400;
-  font-size: 35px;
-  padding: 0;
+
+  & > span {
+    font-family: 'Allerta Stencil';
+    font-weight: 400;
+    font-size: 35px;
+  }
   user-select: none;
 
   & > span:nth-child(2) {

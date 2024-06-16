@@ -9,15 +9,20 @@ import {
 import Text from '@components/Text';
 import { Link } from 'react-router-dom';
 import { useTheme } from 'styled-components';
+import { ProductCardSize } from '@constants/styles';
 
-interface ProductCardProps {
+export interface ProductCardStyleProps {
+  $cardSize: keyof typeof ProductCardSize;
+}
+
+export interface ProductCardProps extends ProductCardStyleProps {
   item: Product;
 }
 
-export default function ProductCard({ item }: ProductCardProps) {
+export default function ProductCard({ item, $cardSize }: ProductCardProps) {
   const { colors } = useTheme();
   return (
-    <ProductCardContainer>
+    <ProductCardContainer $cardSize={$cardSize}>
       <ProductCardImageContainer>
         <Link to=''>
           <ProductCardImage src={item.image} alt={`${item.title} image`} />

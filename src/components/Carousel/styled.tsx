@@ -1,6 +1,6 @@
 import {
   BASIC_BOX_SHADOW_PARAMS,
-  BORDER_RADIUS_MD,
+  BORDER_RADIUS_LG,
   CAROUSEL_MAX_HEIGHT,
   GAP_MD,
   GAP_SM,
@@ -9,7 +9,7 @@ import styled from 'styled-components';
 
 export const CarouselContainer = styled.div`
   position: relative;
-  border-radius: ${BORDER_RADIUS_MD};
+  border-radius: ${BORDER_RADIUS_LG};
   height: ${CAROUSEL_MAX_HEIGHT};
   overflow: hidden;
   box-shadow: ${BASIC_BOX_SHADOW_PARAMS} ${(props) => props.theme.colors.mainColors.blackAlpha200};

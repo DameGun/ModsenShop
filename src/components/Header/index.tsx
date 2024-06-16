@@ -1,12 +1,11 @@
 import { useAppDispatch, useAppSelector } from '@hooks/redux';
 import { changeTheme, selectCurrentTheme } from '@store/theme/themeSlice';
-import { SwitchButton, Nav, StyledHeader, Switch, ThemeSwitch } from './styled';
+import { SwitchButton, Nav, StyledHeader, Switch, ThemeSwitch, HoverableNavLink } from './styled';
 import Icon from '@components/Icon';
-import { HoverableNavLink } from '@components/Link';
 import Logo from '@components/Logo';
-import { searchIcon, cartIcon } from '@assets/icons';
 import Dropdown from '@components/Dropdown';
-import Text from '@components/Text';
+import { CartIcon, SearchIcon } from '@assets/icons';
+import { Link } from '@components/Link';
 
 export default function Header() {
   const dispatch = useAppDispatch();
@@ -20,25 +19,39 @@ export default function Header() {
         <ThemeSwitch>
           <SwitchButton
             type='checkbox'
-            checked={currentColorMode == 'DARK'}
+            defaultChecked={currentColorMode == 'DARK'}
             onClick={() => dispatch(changeTheme())}
           />
           <Switch />
         </ThemeSwitch>
         <HoverableNavLink to='search'>
-          <Icon src={searchIcon} alt='Search' />
+          <Icon src={<SearchIcon />} />
         </HoverableNavLink>
         <HoverableNavLink to='cart' className='nav-cart'>
-          <Icon src={cartIcon} alt='Shopping Cart' />
+          <Icon src={<CartIcon />} />
         </HoverableNavLink>
         <Dropdown>
-          <Text $level='heading1'>Home</Text>
-          <Text $level='heading1'>Shop</Text>
-          <Text $level='heading1'>About</Text>
-          <Text $level='heading1'>Blog</Text>
-          <Text $level='heading1'>Help</Text>
-          <Text $level='heading1'>Contact</Text>
-          <Text $level='heading1'>Search</Text>
+          <Link $level='heading1' to=''>
+            Home
+          </Link>
+          <Link $level='heading1' to='shop'>
+            Shop
+          </Link>
+          <Link $level='heading1' to=''>
+            About
+          </Link>
+          <Link $level='heading1' to=''>
+            Blog
+          </Link>
+          <Link $level='heading1' to=''>
+            Help
+          </Link>
+          <Link $level='heading1' to=''>
+            Contact
+          </Link>
+          <Link $level='heading1' to=''>
+            Search
+          </Link>
         </Dropdown>
       </Nav>
     </StyledHeader>
