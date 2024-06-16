@@ -1,5 +1,6 @@
 import { StyledDropdown } from '@components/Dropdown/styled';
-import { GAP_LG, GAP_MD, GAP_SM, TRANSITION_TIME_MD } from '@constants/styles';
+import { GAP_LG, GAP_MD, GAP_SM, HEADER_MENU_Z_INDEX, TRANSITION_TIME_MD } from '@constants/styles';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
@@ -8,6 +9,7 @@ export const StyledHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   margin: 2em 0;
+  z-index: ${HEADER_MENU_Z_INDEX};
 
   @media ${(props) => props.theme.media.mobile} {
     margin: 1em 0;
@@ -70,5 +72,16 @@ export const Switch = styled.div`
     background: ${(props) => props.theme.colors.mainColors.white};
     transform: translate(0, -50%);
     transition: all ${TRANSITION_TIME_MD};
+  }
+`;
+
+export const HoverableNavLink = styled(Link)`
+  padding: 0.5em;
+  border-bottom: 2px solid transparent;
+  transition: border-color ${TRANSITION_TIME_MD};
+
+  &:hover,
+  &.active {
+    border-bottom-color: ${(props) => props.theme.colors.mainColors.black};
   }
 `;
