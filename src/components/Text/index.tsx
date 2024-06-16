@@ -12,7 +12,7 @@ export interface TextProps {
   $level: keyof typeof CommonFonts;
   $isTruncated?: boolean;
   $color?: string;
-  $uppercase?: boolean;
+  $textTransform?: 'capitalize' | 'uppercase';
   children: ReactNode;
   className?: string;
 }
@@ -25,7 +25,7 @@ export default function Text({ children, ...props }: TextProps) {
   );
 }
 
-const StyledHeading = styled.div<TextProps>`
+export const textStyles = css<TextProps>`
   font-size: ${(props) => props.theme.fonts.default[props.$level].size};
   font-weight: ${(props) => props.theme.fonts.default[props.$level].weight};
   line-height: ${(props) => props.theme.fonts.default[props.$level].lineHeight};
@@ -43,7 +43,11 @@ const StyledHeading = styled.div<TextProps>`
 
   ${(props) => props.$isTruncated && Truncate}
 
-  text-transform: ${(props) => props.$uppercase && 'uppercase'};
+  text-transform: ${(props) => props.$textTransform};
 
-  color: ${(props) => props.$color};
+  color: ${(props) => props.$color || props.theme.colors.mainColors.black};
+`;
+
+const StyledHeading = styled.div<TextProps>`
+  ${textStyles}
 `;

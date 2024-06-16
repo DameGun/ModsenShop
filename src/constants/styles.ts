@@ -1,6 +1,8 @@
 export const MOBILE_WIDTH = '800px';
 
-export const PRODUCT_CARD_WIDTH = '380px';
+export const PRODUCT_CARD_WIDTH_SM = '136px';
+export const PRODUCT_CARD_WIDTH_MD = '300px';
+export const PRODUCT_CARD_WIDTH_LG = '380px';
 
 export const GAP_SM = '0.5em';
 export const GAP_MD = '1em';
@@ -16,12 +18,27 @@ export const CAROUSEL_ANIMATION_DURATION = 5000;
 
 export const BASIC_BOX_SHADOW_PARAMS = '1px 1px 10px 1px';
 
-export const BORDER_RADUIS_SM = '8px';
-export const BORDER_RADIUS_MD = '16px';
+export const BORDER_RADUIS_SM = '4px';
+export const BORDER_RADUIS_MD = '8px';
+export const BORDER_RADIUS_LG = '16px';
 
 export const BUTTON_PADDING_X = '0.5em';
 export const BUTTON_SM_PADDING_Y = '0.8em';
 export const BUTTON_MD_PADDING_Y = '3em';
+
+export const SLIDER_HEIGHT = '0.1em';
+export const SLIDER_THUMB_HEIGHT = '0.8em';
+export const SLIDER_THUMB_WIDTH = '0.2em';
+export const SLIDER_STEP = 2;
+
+export const HEADER_MENU_Z_INDEX = 20;
+export const FILTER_MENU_Z_INDEX = 15;
+
+export enum ProductCardSize {
+  sm = PRODUCT_CARD_WIDTH_SM,
+  md = PRODUCT_CARD_WIDTH_MD,
+  lg = PRODUCT_CARD_WIDTH_LG,
+}
 
 export enum FontWeight {
   regular = '400',

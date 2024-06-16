@@ -1,4 +1,3 @@
-import Icon from '@components/Icon';
 import { GAP_LG } from '@constants/styles';
 import styled from 'styled-components';
 
@@ -15,6 +14,7 @@ export const StyledDropdown = styled.div`
 export const DropdownContainer = styled.div`
   display: flex;
   flex-direction: column;
+  height: 100%;
   position: absolute;
   left: 0;
   width: 100vh;
@@ -23,5 +23,3 @@ export const DropdownContainer = styled.div`
   z-index: 10;
   background-color: ${(props) => props.theme.colors.mainColors.white};
 `;
-
-export const DropdownButton = styled(Icon)``;

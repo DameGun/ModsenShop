@@ -1,23 +1,26 @@
-import { TRANSITION_TIME_MD } from '@constants/styles';
-import { NavLink as BaseNavLink, Link as RouteLink } from 'react-router-dom';
-import styled from 'styled-components';
+import { TextProps, textStyles } from '@components/Text';
+import { TRANSITION_TIME_SM } from '@constants/styles';
+import { Link as RouteLink } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 
-export const Link = styled(RouteLink)`
-  &:hover > h4 {
-    color: ${(props) => props.theme.colors.mainColors.black};
+interface BaseLinkProps {
+  $hoverColor?: string;
+}
+
+interface TextLinkProps extends BaseLinkProps, TextProps {}
+
+const baseLinkStyles = css<BaseLinkProps>`
+  transition: all ${TRANSITION_TIME_SM};
+  &:hover {
+    color: ${(props) => props.$hoverColor || props.theme.colors.mainColors.black};
   }
 `;
 
-export const NavLink = styled(BaseNavLink)`
-  padding: 0.5em;
+export const Link = styled(RouteLink)<TextLinkProps>`
+  ${textStyles}
+  ${baseLinkStyles}
 `;
 
-export const HoverableNavLink = styled(NavLink)`
-  border-bottom: 2px solid transparent;
-  transition: border-color ${TRANSITION_TIME_MD};
-
-  &:hover,
-  &.active {
-    border-bottom-color: ${(props) => props.theme.colors.mainColors.black};
-  }
+export const IconLink = styled(RouteLink)<BaseLinkProps>`
+  ${baseLinkStyles}
 `;

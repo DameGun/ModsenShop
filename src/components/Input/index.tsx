@@ -1,18 +1,23 @@
-import styled from 'styled-components';
+import { ReactNode } from 'react';
+import { InputContainer, StyledInput } from './styled';
 
-export const Input = styled.input.attrs({
-  type: 'text',
-})`
-  border-color: transparent;
-  border-bottom: 1px solid ${(props) => props.theme.colors.neutralColors.darkGray};
-  background-color: ${(props) => props.theme.colors.mainColors.white};
-  border-radius: 0;
+interface InputProps {
+  icon?: ReactNode;
+  placeholder: string;
+  className?: string;
+  onChange: (value: string) => void;
+  type?: React.HTMLInputTypeAttribute;
+}
 
-  padding: 1em 0;
-  font-size: ${(props) => props.theme.fonts.default.heading5.size};
-
-  &:focus {
-    outline: none;
-    caret-color: ${(props) => props.theme.colors.mainColors.black};
-  }
-`;
+export default function Input({ type, icon, placeholder, className, onChange }: InputProps) {
+  return (
+    <InputContainer className={className}>
+      <StyledInput
+        type={type && 'text'}
+        placeholder={placeholder}
+        onChange={(e) => onChange(e.target.value)}
+      />
+      {icon}
+    </InputContainer>
+  );
+}

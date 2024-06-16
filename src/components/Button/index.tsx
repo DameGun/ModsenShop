@@ -1,5 +1,5 @@
 import {
-  BORDER_RADUIS_SM,
+  BORDER_RADUIS_MD,
   BUTTON_MD_PADDING_Y,
   BUTTON_PADDING_X,
   BUTTON_SM_PADDING_Y,
@@ -46,7 +46,7 @@ const mdButtonStyles = css`
 
 const Button = styled.button<ButtonProps>`
   border-style: solid;
-  border-radius: ${BORDER_RADUIS_SM};
+  border-radius: ${BORDER_RADUIS_MD};
   font-size: ${(props) => props.theme.fonts.default.bodyLarge.size};
   padding-top: ${BUTTON_PADDING_X};
   padding-bottom: ${BUTTON_PADDING_X};
