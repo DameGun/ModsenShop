@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '@store';
-import { FilterParams } from '@ts/product';
+import { FilterParams } from 'types/product';
 import { productsApi } from './productsApi';
 
 export interface ProductsState extends Omit<FilterParams, 'limit'> {}

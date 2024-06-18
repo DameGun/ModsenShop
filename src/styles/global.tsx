@@ -25,6 +25,7 @@ export default createGlobalStyle`
         max-width: 75%;
         min-height: 100vh;
         margin: 0 auto;
+        
     }
 
     @media ${(props) => props.theme.media.mobile} {
