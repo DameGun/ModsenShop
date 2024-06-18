@@ -1,7 +1,7 @@
-import Products from '@components/Products';
-import Section, { SectionHeader } from '@components/Section';
-import Sidebar from '@components/Sidebar';
-import Text from '@components/Text';
+import Products from '@components/containers/Products';
+import Section, { SectionHeader } from '@components/ui/Section';
+import Sidebar from '@components/containers/Sidebar';
+import Text from '@components/ui/Text';
 import { ShopContainer } from './styled';
 import { useAppSelector } from '@hooks/redux';
 import {
@@ -11,7 +11,7 @@ import {
   selectPriceSortValues,
 } from '@store/products/productsSlice';
 
-export default function Shop() {
+export default function ShopPage() {
   const sort = useAppSelector(selectCurrentSortOrder);
   const category = useAppSelector(selectCurrentCategory);
   const searchTerm = useAppSelector(selectCurrentSearchTerm);

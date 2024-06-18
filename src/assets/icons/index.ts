@@ -10,6 +10,9 @@ import TwitterIcon from '@assets/icons/twitter-icon.svg';
 import FilterIcon from '@assets/icons/filter-icon.svg';
 import SelectIcon from '@assets/icons/select-icon.svg';
 import FooterEmailIcon from '@assets/icons/footer-email-icon.svg';
+import StarIcon from '@assets/icons/star-icon.svg';
+import MinusIcon from '@assets/icons/minus-icon.svg';
+import PlusIcon from '@assets/icons/plus-icon.svg';
 
 export {
   CartIcon,
@@ -24,4 +27,7 @@ export {
   FilterIcon,
   SelectIcon,
   FooterEmailIcon,
+  StarIcon,
+  MinusIcon,
+  PlusIcon,
 };
