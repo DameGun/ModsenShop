@@ -30,6 +30,10 @@ interface ZIndexValues {
   filterMenu: number;
 }
 
+interface Animations {
+  opacityAnimation: (transitionTime: number) => string;
+}
+
 export interface ThemeConstants {
   productCardWidth: ThemeSizes;
   iconSize: ThemeSizes;
@@ -42,4 +46,5 @@ export interface ThemeConstants {
   slider: SliderParams;
   zIndexes: ZIndexValues;
   fontWeight: typeof FontWeight;
+  animations: Animations;
 }

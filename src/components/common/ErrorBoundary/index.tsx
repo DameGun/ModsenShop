@@ -1,5 +1,6 @@
-import Text from '@components/ui/Text';
 import { Component, ErrorInfo, ReactNode } from 'react';
+import Fallback from '@components/containers/Fallback';
+import Text from '@components/ui/Text';
 
 interface Props {
   isLoading: boolean;
@@ -27,11 +28,19 @@ export default class ErrorBoundary extends Component<Props, State> {
 
   public render() {
     if (this.props.isLoading || this.props.isUninitialized) {
-      return <Text $level='heading2'>Loading...</Text>;
+      return (
+        <Fallback>
+          <Text $level='heading2'>Loading...</Text>
+        </Fallback>
+      );
     }
 
     if (this.state.hasError || this.props.isError) {
-      return <Text $level='heading1'>Sorry. Error happened</Text>;
+      return (
+        <Fallback>
+          <Text $level='heading2'>Sorry. Error happened</Text>
+        </Fallback>
+      );
     }
 
     return this.props.children;

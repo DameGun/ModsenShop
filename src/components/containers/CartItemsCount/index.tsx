@@ -3,31 +3,28 @@ import { FlexRow } from '@components/ui/Flex';
 import Icon from '@components/ui/Icon';
 import IconButton from '@components/ui/IconButton';
 import Text from '@components/ui/Text';
-import { useState } from 'react';
 import { CountDisplay } from './styled';
 
-export default function CartItemsCount() {
-  const [count, setCount] = useState<number>(1);
+interface CartItemsCountProps {
+  quantity: number;
+  handleIncrement: () => void;
+  handleDecrement: () => void;
+}
 
-  function handlePlus() {
-    setCount((prev) => prev + 1);
-  }
-
-  function handleMinus() {
-    if (count > 1) {
-      setCount((prev) => prev - 1);
-    }
-  }
-
+export default function CartItemsCount({
+  quantity,
+  handleDecrement,
+  handleIncrement,
+}: CartItemsCountProps) {
   return (
     <FlexRow>
-      <IconButton $mobileVisible $desktopVisible onClick={handleMinus}>
+      <IconButton $mobileVisible $desktopVisible onClick={handleDecrement}>
         <Icon src={<MinusIcon />} />
       </IconButton>
       <CountDisplay>
-        <Text $level='heading4'>{count}</Text>
+        <Text $level='heading5'>{quantity}</Text>
       </CountDisplay>
-      <IconButton $mobileVisible $desktopVisible onClick={handlePlus}>
+      <IconButton $mobileVisible $desktopVisible onClick={handleIncrement}>
         <Icon src={<PlusIcon />} />
       </IconButton>
     </FlexRow>

@@ -1,12 +1,15 @@
 export type Category = string;
 
+export type PriceSortType = [number, number];
+export type SortType = 'desc' | 'asc';
+
 export type FilterParams = {
-  sort?: 'desc' | 'asc';
+  sort?: SortType;
   category?: string;
   limit?: number;
   searchTerm?: string;
-  priceConstants?: [number, number];
-  priceSortValues?: [number, number];
+  priceConstants?: PriceSortType;
+  priceSortValues?: PriceSortType;
 };
 
 export type Product = {

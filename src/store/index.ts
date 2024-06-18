@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
-import themeReducer from '@store/theme/themeSlice';
+import cartReducer from '@store/cart/cartSlice';
 import productsReducer from '@store/products/productsSlice';
+import themeReducer from '@store/theme/themeSlice';
 import { productsApi } from './products/productsApi';
 
 export const store = configureStore({
@@ -8,6 +9,7 @@ export const store = configureStore({
     theme: themeReducer,
     [productsApi.reducerPath]: productsApi.reducer,
     products: productsReducer,
+    cart: cartReducer,
   },
 
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(productsApi.middleware),

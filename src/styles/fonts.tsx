@@ -1,5 +1,5 @@
+import { allertaStencil, dmSansBold, dmSansMedium, dmSansRegular } from '@assets/fonts';
 import { css } from 'styled-components';
-import { dmSansRegular, dmSansBold, dmSansMedium, allertaStencil } from '@assets/fonts';
 
 export default css`
   @font-face {

@@ -1,8 +1,8 @@
+import DotenvWebpackPlugin from 'dotenv-webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
-import DotenvWebpackPlugin from 'dotenv-webpack';
+import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

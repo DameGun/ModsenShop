@@ -1,6 +1,9 @@
-import 'styled-components';
-import { CommonFonts, MobileFonts, FontWeight } from '@constants/styles';
+import { CommonFonts, FontWeight, MobileFonts } from '@constants/styles';
 import { ThemeConstants } from './themeConstants';
+
+import 'styled-components';
+
+export type ColorMode = 'LIGHT' | 'DARK';
 
 export interface ThemeMedia {
   mobile: string;
