@@ -1,13 +1,14 @@
-import Input from '@components/ui/Input';
-import { SidebarContainer, SidebarGroup, SidebarInnerContainer } from './styled';
-import Select from '@components/ui/Select';
-import Icon from '@components/ui/Icon';
-import Text from '@components/ui/Text';
-import { useTheme } from 'styled-components';
-import { useGetAllCategoriesQuery } from '@store/products/productsApi';
-import IconButton from '@components/ui/IconButton';
+import { useState } from 'react';
 import { FilterIcon, SearchIcon } from '@assets/icons';
+import FilterOptionContainer from '@components/containers/FilterOptionContainer';
+import Slider from '@components/containers/Slider';
+import Icon from '@components/ui/Icon';
+import IconButton from '@components/ui/IconButton';
+import Input from '@components/ui/Input';
+import Select from '@components/ui/Select';
+import Text from '@components/ui/Text';
 import { useAppDispatch, useAppSelector } from '@hooks/redux';
+import { useGetAllCategoriesQuery } from '@store/products/productsApi';
 import {
   selectCurrentSearchTerm,
   selectPriceConstants,
@@ -16,9 +17,8 @@ import {
   setSortCategory,
   setSortOrder,
 } from '@store/products/productsSlice';
-import Slider from '@components/containers/Slider';
-import FilterOptionContainer from '@components/containers/FilterOptionContainer';
-import { useState } from 'react';
+import { useTheme } from 'styled-components';
+import { SidebarContainer, SidebarGroup, SidebarInnerContainer } from './styled';
 
 export default function Sidebar() {
   const { colors } = useTheme();

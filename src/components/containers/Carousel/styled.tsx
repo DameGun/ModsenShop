@@ -5,12 +5,14 @@ export const CarouselContainer = styled.div`
   border-radius: ${(props) => props.theme.constants.borderRadius.lg};
   height: ${(props) => props.theme.constants.carousel.maxHeight};
   overflow: hidden;
-  box-shadow: ${(props) => props.theme.constants.boxShadow} +
-    ${(props) => props.theme.colors.mainColors.blackAlpha200};
+  box-shadow: ${(props) =>
+    props.theme.constants.boxShadow + ' ' + props.theme.colors.mainColors.blackAlpha200};
 
   @media ${(props) => props.theme.media.mobile} {
     height: auto;
   }
+
+  ${(props) => props.theme.constants.animations.opacityAnimation(1)}
 `;
 
 export const CarouselIndicatorContainer = styled.span`

@@ -1,9 +1,9 @@
-import Icon from '@components/ui/Icon';
-import { SelectDropdown, SelectDropdownItem, SelectLabelButton } from './styled';
 import { useState } from 'react';
 import { SelectIcon } from '@assets/icons';
-import Text from '@components/ui/Text';
 import FilterOptionContainer from '@components/containers/FilterOptionContainer';
+import Icon from '@components/ui/Icon';
+import Text from '@components/ui/Text';
+import { SelectDropdown, SelectDropdownItem, SelectLabelButton } from './styled';
 
 interface SelectProps {
   label: string;

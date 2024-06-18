@@ -1,8 +1,7 @@
 import Products from '@components/containers/Products';
-import Section, { SectionHeader } from '@components/ui/Section';
 import Sidebar from '@components/containers/Sidebar';
+import Section, { SectionHeader } from '@components/ui/Section';
 import Text from '@components/ui/Text';
-import { ShopContainer } from './styled';
 import { useAppSelector } from '@hooks/redux';
 import {
   selectCurrentCategory,
@@ -10,6 +9,7 @@ import {
   selectCurrentSortOrder,
   selectPriceSortValues,
 } from '@store/products/productsSlice';
+import { ShopContainer } from './styled';
 
 export default function ShopPage() {
   const sort = useAppSelector(selectCurrentSortOrder);

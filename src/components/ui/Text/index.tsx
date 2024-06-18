@@ -1,12 +1,12 @@
-import { CommonFonts } from '@constants/styles';
 import { ReactNode } from 'react';
+import { CommonFonts } from '@constants/styles';
 import { StyledHeading } from './styled';
 
 export interface TextProps {
   $level: keyof typeof CommonFonts;
   $isTruncated?: boolean;
   $color?: string;
-  $textTransform?: 'capitalize' | 'uppercase';
+  $textTransform?: React.CSSProperties['textTransform'];
   $spanColor?: string;
   children: ReactNode;
   className?: string;

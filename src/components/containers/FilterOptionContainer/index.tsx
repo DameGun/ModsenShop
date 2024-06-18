@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
-import { FilterOptionChildernContainer, FilterOptionMainContainer } from './styled';
-import IconButton from '@components/ui/IconButton';
-import Icon from '@components/ui/Icon';
 import { CloseIcon } from '@assets/icons';
+import Icon from '@components/ui/Icon';
+import IconButton from '@components/ui/IconButton';
+import { FilterOptionChildernContainer, FilterOptionMainContainer } from './styled';
 
 interface FilterItemProps {
   isVisible: boolean;

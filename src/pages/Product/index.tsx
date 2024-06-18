@@ -1,19 +1,18 @@
+import { Fragment } from 'react';
+import { useParams } from 'react-router-dom';
+import { StarIcon } from '@assets/icons';
 import ErrorBoundary from '@components/common/ErrorBoundary';
+import AddToCartButton from '@components/containers/AddToCartButton';
+import SimilarItems from '@components/containers/SimilarItems';
+import { FlexColumn, FlexRow } from '@components/ui/Flex';
+import Icon from '@components/ui/Icon';
+import { ImageFillContainer } from '@components/ui/Image';
 import Section, { SectionHeader } from '@components/ui/Section';
 import Text from '@components/ui/Text';
-import { useGetProductQuery } from '@store/products/productsApi';
-import { useParams } from 'react-router-dom';
-import { ProductSectionHeader } from './styled';
-import { useTheme } from 'styled-components';
-import { ImageFillContainer } from '@components/ui/Image';
-import Button from '@components/ui/Button';
-import { FlexColumn, FlexRow } from '@components/ui/Flex';
 import { GAP_MD, GAP_SM, GAP_XL } from '@constants/styles';
-import SimilarItems from '@components/containers/SimilarItems';
-import { Fragment } from 'react';
-import Icon from '@components/ui/Icon';
-import { StarIcon } from '@assets/icons';
-import CartItemsCount from '@components/containers/CartItemsCount';
+import { useGetProductQuery } from '@store/products/productsApi';
+import { useTheme } from 'styled-components';
+import { ProductSectionHeader } from './styled';
 
 export default function ProductPage() {
   const { id } = useParams();
@@ -25,7 +24,12 @@ export default function ProductPage() {
       {itemData && (
         <Fragment>
           <Section>
-            <FlexRow $gap={GAP_XL} $mobileDirection='column'>
+            <FlexRow
+              $gap={GAP_XL}
+              $mobile={{
+                $direction: 'column',
+              }}
+            >
               <FlexColumn $flex={2}>
                 <ImageFillContainer src={itemData.image} />
               </FlexColumn>
@@ -53,8 +57,7 @@ export default function ProductPage() {
                   </FlexColumn>
                 </FlexColumn>
                 <FlexColumn $align='start' $gap={GAP_MD}>
-                  <CartItemsCount />
-                  <Button $size='md'>Add to cart</Button>
+                  <AddToCartButton isWithCounter product={itemData} />
                 </FlexColumn>
                 <FlexColumn>
                   <Text

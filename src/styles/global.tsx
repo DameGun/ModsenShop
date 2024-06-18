@@ -9,6 +9,11 @@ export default createGlobalStyle`
         padding: 0;
         font-family: 'DM Sans';
     }
+
+    html {
+        overflow-x: hidden;
+        margin-right: calc(-1 * (100vw - 100%))
+    }
     
     body {
         background-color: ${(props) => props.theme.colors.mainColors.white};

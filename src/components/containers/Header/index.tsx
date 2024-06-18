@@ -1,12 +1,12 @@
-import { useAppDispatch, useAppSelector } from '@hooks/redux';
-import { changeTheme, selectCurrentTheme } from '@store/theme/themeSlice';
-import { SwitchButton, Nav, StyledHeader, Switch, ThemeSwitch, HoverableNavLink } from './styled';
-import Icon from '@components/ui/Icon';
+import { CartIcon, SearchIcon } from '@assets/icons';
 import Logo from '@components/containers/Logo';
 import Dropdown from '@components/ui/Dropdown';
-import { CartIcon, SearchIcon } from '@assets/icons';
+import Icon from '@components/ui/Icon';
 import { Link } from '@components/ui/Link';
 import { ROUTES } from '@constants/routes';
+import { useAppDispatch, useAppSelector } from '@hooks/redux';
+import { changeTheme, selectCurrentTheme } from '@store/theme/themeSlice';
+import { HoverableNavLink, Nav, StyledHeader, Switch, SwitchButton, ThemeSwitch } from './styled';
 
 export default function Header() {
   const dispatch = useAppDispatch();

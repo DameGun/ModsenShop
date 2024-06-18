@@ -1,9 +1,9 @@
+import { Fragment } from 'react/jsx-runtime';
 import Carousel from '@components/containers/Carousel';
-import { Link } from '@components/ui/Link';
 import Products from '@components/containers/Products';
+import { Link } from '@components/ui/Link';
 import Section, { SectionHeader } from '@components/ui/Section';
 import Text from '@components/ui/Text';
-import { Fragment } from 'react/jsx-runtime';
 import { useTheme } from 'styled-components';
 
 export default function HomePage() {

@@ -1,5 +1,5 @@
+import { NavLink } from 'react-router-dom';
 import { StyledDropdown } from '@components/ui/Dropdown/styled';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
@@ -74,7 +74,7 @@ export const Switch = styled.div`
   }
 `;
 
-export const HoverableNavLink = styled(Link)`
+export const HoverableNavLink = styled(NavLink)`
   padding: 0.5em;
   border-bottom: 2px solid transparent;
   transition: border-color ${(props) => props.theme.constants.transitionTime.md};

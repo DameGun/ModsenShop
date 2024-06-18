@@ -1,37 +1,38 @@
 import {
-  MOBILE_WIDTH,
-  FontWeight,
-  PRODUCT_CARD_WIDTH_SM,
-  PRODUCT_CARD_WIDTH_MD,
-  PRODUCT_CARD_WIDTH_LG,
-  ICON_SIZE_SM,
-  ICON_SIZE_MD,
-  ICON_SIZE_LG,
-  GAP_SM,
-  GAP_MD,
-  GAP_LG,
-  GAP_XL,
-  TRANSITION_TIME_SM,
-  TRANSITION_TIME_MD,
-  CAROUSEL_MAX_HEIGHT,
-  CAROUSEL_LENGTH,
-  CAROUSEL_ANIMATION_DURATION,
   BASIC_BOX_SHADOW_PARAMS,
-  BORDER_RADUIS_SM,
-  BORDER_RADUIS_MD,
   BORDER_RADIUS_LG,
+  BORDER_RADUIS_MD,
+  BORDER_RADUIS_SM,
+  BUTTON_MD_PADDING_Y,
   BUTTON_PADDING_X,
   BUTTON_SM_PADDING_Y,
-  BUTTON_MD_PADDING_Y,
+  CAROUSEL_ANIMATION_DURATION,
+  CAROUSEL_LENGTH,
+  CAROUSEL_MAX_HEIGHT,
+  FILTER_MENU_Z_INDEX,
+  FontWeight,
+  GAP_LG,
+  GAP_MD,
+  GAP_SM,
+  GAP_XL,
+  HEADER_MENU_Z_INDEX,
+  ICON_SIZE_LG,
+  ICON_SIZE_MD,
+  ICON_SIZE_SM,
+  MOBILE_WIDTH,
+  OPACITY_ANIMATION,
+  PRODUCT_CARD_WIDTH_LG,
+  PRODUCT_CARD_WIDTH_MD,
+  PRODUCT_CARD_WIDTH_SM,
   SLIDER_HEIGHT,
+  SLIDER_STEP,
   SLIDER_THUMB_HEIGHT,
   SLIDER_THUMB_WIDTH,
-  SLIDER_STEP,
-  HEADER_MENU_Z_INDEX,
-  FILTER_MENU_Z_INDEX,
+  TRANSITION_TIME_MD,
+  TRANSITION_TIME_SM,
 } from '@constants/styles';
-import { ThemeColors, ThemeFonts, ThemeMedia } from 'types/theme';
 import { DefaultTheme } from 'styled-components';
+import { ThemeColors, ThemeFonts, ThemeMedia } from 'types/theme';
 import { ThemeConstants } from 'types/themeConstants';
 
 const baseColors: Pick<ThemeColors, 'serviceColors'> = {
@@ -150,6 +151,9 @@ const baseConstants: ThemeConstants = {
     filterMenu: FILTER_MENU_Z_INDEX,
   },
   fontWeight: FontWeight,
+  animations: {
+    opacityAnimation: OPACITY_ANIMATION,
+  },
 };
 
 const baseTheme: Pick<DefaultTheme, 'media' | 'fonts' | 'constants'> = {

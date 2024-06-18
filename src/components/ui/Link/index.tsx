@@ -1,5 +1,5 @@
-import { TextProps } from '@components/ui/Text';
 import { Link as RouteLink } from 'react-router-dom';
+import { TextProps } from '@components/ui/Text';
 import styled, { css } from 'styled-components';
 import { textStyles } from '../Text/styled';
 

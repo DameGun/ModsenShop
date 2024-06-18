@@ -1,7 +1,7 @@
+import { ReactNode } from 'react';
 import { useAppSelector } from '@hooks/redux';
 import { selectCurrentTheme } from '@store/theme/themeSlice';
 import { darkTheme, lightTheme } from '@styles/theme';
-import { ReactNode } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 interface ThemeContextProviderProps {
