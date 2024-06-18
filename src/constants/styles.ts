@@ -34,11 +34,9 @@ export const SLIDER_STEP = 2;
 export const HEADER_MENU_Z_INDEX = 20;
 export const FILTER_MENU_Z_INDEX = 15;
 
-export enum ProductCardSize {
-  sm = PRODUCT_CARD_WIDTH_SM,
-  md = PRODUCT_CARD_WIDTH_MD,
-  lg = PRODUCT_CARD_WIDTH_LG,
-}
+export const ICON_SIZE_SM = '1em';
+export const ICON_SIZE_MD = '1.5em';
+export const ICON_SIZE_LG = '2em';
 
 export enum FontWeight {
   regular = '400',

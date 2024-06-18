@@ -1,6 +1,38 @@
-import { MOBILE_WIDTH, FontWeight } from '@constants/styles';
-import { ThemeColors, ThemeFonts, ThemeMedia } from '@ts/styled';
+import {
+  MOBILE_WIDTH,
+  FontWeight,
+  PRODUCT_CARD_WIDTH_SM,
+  PRODUCT_CARD_WIDTH_MD,
+  PRODUCT_CARD_WIDTH_LG,
+  ICON_SIZE_SM,
+  ICON_SIZE_MD,
+  ICON_SIZE_LG,
+  GAP_SM,
+  GAP_MD,
+  GAP_LG,
+  GAP_XL,
+  TRANSITION_TIME_SM,
+  TRANSITION_TIME_MD,
+  CAROUSEL_MAX_HEIGHT,
+  CAROUSEL_LENGTH,
+  CAROUSEL_ANIMATION_DURATION,
+  BASIC_BOX_SHADOW_PARAMS,
+  BORDER_RADUIS_SM,
+  BORDER_RADUIS_MD,
+  BORDER_RADIUS_LG,
+  BUTTON_PADDING_X,
+  BUTTON_SM_PADDING_Y,
+  BUTTON_MD_PADDING_Y,
+  SLIDER_HEIGHT,
+  SLIDER_THUMB_HEIGHT,
+  SLIDER_THUMB_WIDTH,
+  SLIDER_STEP,
+  HEADER_MENU_Z_INDEX,
+  FILTER_MENU_Z_INDEX,
+} from '@constants/styles';
+import { ThemeColors, ThemeFonts, ThemeMedia } from 'types/theme';
 import { DefaultTheme } from 'styled-components';
+import { ThemeConstants } from 'types/themeConstants';
 
 const baseColors: Pick<ThemeColors, 'serviceColors'> = {
   serviceColors: {
@@ -21,14 +53,16 @@ const baseFonts: ThemeFonts = {
     heading2: {
       size: '26px',
       lineHeight: '35px',
+      weight: FontWeight.regular,
     },
     heading3: {
       size: '20px',
       lineHeight: '26px',
+      weight: FontWeight.regular,
     },
     heading4: {
       weight: FontWeight.medium,
-      size: '16px',
+      size: '20px',
       lineHeight: '20px',
     },
     heading5: {
@@ -66,6 +100,66 @@ const baseFonts: ThemeFonts = {
   },
 };
 
+const baseConstants: ThemeConstants = {
+  productCardWidth: {
+    sm: PRODUCT_CARD_WIDTH_SM,
+    md: PRODUCT_CARD_WIDTH_MD,
+    lg: PRODUCT_CARD_WIDTH_LG,
+  },
+  iconSize: {
+    sm: ICON_SIZE_SM,
+    md: ICON_SIZE_MD,
+    lg: ICON_SIZE_LG,
+  },
+  gap: {
+    sm: GAP_SM,
+    md: GAP_MD,
+    lg: GAP_LG,
+    xl: GAP_XL,
+  },
+  transitionTime: {
+    sm: TRANSITION_TIME_SM,
+    md: TRANSITION_TIME_MD,
+  },
+  carousel: {
+    maxHeight: CAROUSEL_MAX_HEIGHT,
+    length: CAROUSEL_LENGTH,
+    animationDuration: CAROUSEL_ANIMATION_DURATION,
+  },
+  boxShadow: BASIC_BOX_SHADOW_PARAMS,
+  borderRadius: {
+    sm: BORDER_RADUIS_SM,
+    md: BORDER_RADUIS_MD,
+    lg: BORDER_RADIUS_LG,
+  },
+  button: {
+    paddingX: BUTTON_PADDING_X,
+    paddingY: {
+      sm: BUTTON_SM_PADDING_Y,
+      md: BUTTON_MD_PADDING_Y,
+    },
+  },
+  slider: {
+    height: SLIDER_HEIGHT,
+    thumbHeight: SLIDER_THUMB_HEIGHT,
+    thumbWidth: SLIDER_THUMB_WIDTH,
+    step: SLIDER_STEP,
+  },
+  zIndexes: {
+    headerMenu: HEADER_MENU_Z_INDEX,
+    filterMenu: FILTER_MENU_Z_INDEX,
+  },
+  fontWeight: FontWeight,
+};
+
+const baseTheme: Pick<DefaultTheme, 'media' | 'fonts' | 'constants'> = {
+  media: baseMedia,
+
+  fonts: baseFonts,
+
+  constants: baseConstants,
+};
+
 export const darkTheme: DefaultTheme = {
   mode: 'DARK',
 
@@ -86,9 +180,7 @@ export const darkTheme: DefaultTheme = {
     ...baseColors,
   },
 
-  media: baseMedia,
-
-  fonts: baseFonts,
+  ...baseTheme,
 };
 
 export const lightTheme: DefaultTheme = {
@@ -111,7 +203,5 @@ export const lightTheme: DefaultTheme = {
     ...baseColors,
   },
 
-  media: baseMedia,
-
-  fonts: baseFonts,
+  ...baseTheme,
 };

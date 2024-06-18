@@ -1,8 +1,8 @@
-import Carousel from '@components/Carousel';
-import { Link } from '@components/Link';
-import Products from '@components/Products';
-import Section, { SectionHeader } from '@components/Section';
-import Text from '@components/Text';
+import Carousel from '@components/containers/Carousel';
+import { Link } from '@components/ui/Link';
+import Products from '@components/containers/Products';
+import Section, { SectionHeader } from '@components/ui/Section';
+import Text from '@components/ui/Text';
 import { Fragment } from 'react/jsx-runtime';
 import { useTheme } from 'styled-components';
 
