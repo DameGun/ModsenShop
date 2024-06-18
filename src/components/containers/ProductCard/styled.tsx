@@ -1,5 +1,6 @@
 import { ImageFillContainer } from '@components/ui/Image';
 import styled from 'styled-components';
+
 import { ProductCardStyleProps } from '.';
 
 export const ProductCardContainer = styled.div<ProductCardStyleProps>`
@@ -15,6 +16,8 @@ export const ProductCardContainer = styled.div<ProductCardStyleProps>`
   @media ${(props) => props.theme.media.mobile} {
     width: ${(props) => props.theme.constants.productCardWidth.sm};
   }
+
+  ${(props) => props.theme.constants.animations.opacityAnimation(1)}
 `;
 
 export const ProductCardContent = styled.div`
@@ -38,13 +41,18 @@ export const CardHoverSpan = styled.span`
   left: 0;
   bottom: 0;
   width: 100%;
-  padding: 1em 0;
   text-align: center;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: ${(props) => props.theme.constants.borderRadius.md};
+  border-bottom-right-radius: ${(props) => props.theme.constants.borderRadius.md};
 
   background-color: ${(props) => props.theme.colors.neutralColors.lightGray};
   cursor: pointer;
+
+  transition: all ${(props) => props.theme.constants.transitionTime.sm};
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.neutralColors.gray};
+  }
 `;
 
 export const ProductCardImageContainer = styled.div`

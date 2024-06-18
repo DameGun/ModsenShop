@@ -1,8 +1,4 @@
-import Text from '@components/ui/Text';
-import { FooterContainer, FooterSocials, FooterText } from './styled';
-import Input from '@components/ui/Input';
-import Icon from '@components/ui/Icon';
-import { IconLink, Link } from '@components/ui/Link';
+import { useMemo } from 'react';
 import {
   FacebookIcon,
   FooterEmailIcon,
@@ -10,9 +6,13 @@ import {
   LinkedinIcon,
   TwitterIcon,
 } from '@assets/icons';
-import { useTheme } from 'styled-components';
-import { useMemo } from 'react';
+import Icon from '@components/ui/Icon';
+import Input from '@components/ui/Input';
+import { IconLink, Link } from '@components/ui/Link';
+import Text from '@components/ui/Text';
 import { ROUTES } from '@constants/routes';
+import { useTheme } from 'styled-components';
+import { FooterContainer, FooterSocials, FooterText } from './styled';
 
 export default function Footer() {
   const { colors } = useTheme();

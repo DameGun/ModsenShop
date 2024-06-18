@@ -1,17 +1,18 @@
-import { CAROUSEL_ANIMATION_DURATION, CAROUSEL_LENGTH } from '@constants/styles';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import Button from '@components/ui/Button';
+import { ImageFillContainer } from '@components/ui/Image';
+import Text from '@components/ui/Text';
+import { ROUTES } from '@constants/routes';
+import { CAROUSEL_ANIMATION_DURATION, CAROUSEL_LENGTH } from '@constants/styles';
+import { useGetAllProductsQuery } from '@store/products/productsApi';
+import { useTheme } from 'styled-components';
 import {
   CarouselContainer,
   CarouselIndicator,
   CarouselIndicatorContainer,
   CarouselInfoContainer,
 } from './styled';
-import { ImageFillContainer } from '@components/ui/Image';
-import Text from '@components/ui/Text';
-import { useTheme } from 'styled-components';
-import Button from '@components/ui/Button';
-import { Link } from 'react-router-dom';
-import { useGetAllProductsQuery } from '@store/products/productsApi';
 
 export default function Carousel() {
   const { data } = useGetAllProductsQuery();
@@ -40,7 +41,7 @@ export default function Carousel() {
           <Text $level='bodyMedium' $color={colors.mainColors.white}>
             $ {data[index].price}
           </Text>
-          <Link to=''>
+          <Link to={ROUTES.products(data[index].id.toString())}>
             <Button $size='sm'>View Product</Button>
           </Link>
         </CarouselInfoContainer>

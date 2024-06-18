@@ -1,9 +1,9 @@
-import Text from '@components/ui/Text';
-import { SliderRange, SliderTextContainer, SliderTrack, StyledRangeInput } from './styled';
 import { useState } from 'react';
-import { useTheme } from 'styled-components';
-import IconButton from '@components/ui/IconButton';
 import FilterOptionContainer from '@components/containers/FilterOptionContainer';
+import IconButton from '@components/ui/IconButton';
+import Text from '@components/ui/Text';
+import { useTheme } from 'styled-components';
+import { SliderRange, SliderTextContainer, SliderTrack, StyledRangeInput } from './styled';
 
 interface RangeInputProps {
   minValue: number;

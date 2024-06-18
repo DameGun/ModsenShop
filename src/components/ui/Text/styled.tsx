@@ -1,5 +1,6 @@
 import { MobileFonts } from '@constants/styles';
 import styled, { css } from 'styled-components';
+
 import { TextProps } from '.';
 
 const Truncate = css`

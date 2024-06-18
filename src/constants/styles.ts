@@ -38,6 +38,20 @@ export const ICON_SIZE_SM = '1em';
 export const ICON_SIZE_MD = '1.5em';
 export const ICON_SIZE_LG = '2em';
 
+export const OPACITY_ANIMATION = (transitionTime: number) => `
+ @keyframes appear {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  animation-name: appear;
+  animation-duration: ${transitionTime}s;
+`;
+
 export enum FontWeight {
   regular = '400',
   medium = '500',

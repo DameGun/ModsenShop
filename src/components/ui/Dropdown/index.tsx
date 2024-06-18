@@ -1,8 +1,8 @@
-import { DropdownContainer, StyledDropdown } from './styled';
-import { CloseIcon, DropdownIcon } from '@assets/icons';
-import IconButton from '@components/ui/IconButton';
-import Icon from '@components/ui/Icon';
 import React from 'react';
+import { CloseIcon, DropdownIcon } from '@assets/icons';
+import Icon from '@components/ui/Icon';
+import IconButton from '@components/ui/IconButton';
+import { DropdownContainer, StyledDropdown } from './styled';
 
 interface DropdownProps {
   children: React.ReactNode;

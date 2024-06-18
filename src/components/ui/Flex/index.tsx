@@ -1,16 +1,20 @@
 import styled, { css } from 'styled-components';
 
-interface FlexProps {
+export interface FlexProps {
   $gap?: string;
   $justify?: React.CSSProperties['justifyContent'];
   $align?: React.CSSProperties['alignItems'];
-  $mobileDirection?: React.CSSProperties['flexDirection'];
+  $mobile?: FlexProps & { $direction?: React.CSSProperties['flexDirection'] };
   $flex?: number;
 }
 
 const mobileStyles = css<FlexProps>`
   @media ${(props) => props.theme.media.mobile} {
-    flex-direction: ${(props) => props.$mobileDirection};
+    flex-direction: ${(props) => props.$mobile?.$direction};
+    gap: ${(props) => props.$mobile?.$gap};
+    justify-content: ${(props) => props.$mobile?.$justify};
+    align-items: ${(props) => props.$mobile?.$align};
+    flex: ${(props) => props.$mobile?.$flex};
   }
 `;
 

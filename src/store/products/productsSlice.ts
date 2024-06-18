@@ -1,6 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '@store';
-import { FilterParams } from 'types/product';
+import { FilterParams, PriceSortType, SortType } from 'types/product';
 import { productsApi } from './productsApi';
 
 export interface ProductsState extends Omit<FilterParams, 'limit'> {}
@@ -15,17 +15,17 @@ const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    setSortOrder: (state, action) => {
+    setSortOrder: (state, action: PayloadAction<SortType>) => {
       state.sort = action.payload;
     },
-    setSortCategory: (state, action) => {
+    setSortCategory: (state, action: PayloadAction<string>) => {
       state.category = action.payload;
     },
-    setSearchTerm: (state, action) => {
+    setSearchTerm: (state, action: PayloadAction<string>) => {
       state.searchTerm = action.payload;
     },
-    setPriceValues: (state, action) => {
-      const payload = action.payload as [number, number];
+    setPriceValues: (state, action: PayloadAction<PriceSortType>) => {
+      const payload = action.payload;
 
       if (payload) {
         state.priceSortValues = payload;

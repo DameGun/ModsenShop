@@ -1,10 +1,11 @@
-import { ProductCardStyleProps } from '@components/containers/ProductCard';
-import { FilterParams } from 'types/product';
-import { useGetAllProductsQuery } from '@store/products/productsApi';
 import { useCallback } from 'react';
 import ErrorBoundary from '@components/common/ErrorBoundary';
-import Text from '@components/ui/Text';
+import { ProductCardStyleProps } from '@components/containers/ProductCard';
 import ProductsWrapper from '@components/containers/ProductsWrapper';
+import Text from '@components/ui/Text';
+import { useGetAllProductsQuery } from '@store/products/productsApi';
+import { FilterParams } from 'types/product';
+import Fallback from '../Fallback';
 
 export interface ProductsProps extends FilterParams, ProductCardStyleProps {}
 
@@ -42,7 +43,11 @@ export default function Products({
         return <ProductsWrapper items={result} $cardSize={$cardSize} />;
       }
 
-      return <Text $level='heading2'>No products found</Text>;
+      return (
+        <Fallback>
+          <Text $level='heading2'>No products found</Text>
+        </Fallback>
+      );
     }
   }, [category, sort, searchTerm, priceSortValues, data]);
 
