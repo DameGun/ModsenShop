@@ -4,6 +4,7 @@ import Footer from '@components/containers/Footer';
 import Header from '@components/containers/Header';
 import GlobalStyles from '@styles/global';
 import { MainContainer } from './styled';
+import AlertsSection from '../AlertsSection';
 
 export default function Layout() {
   return (
@@ -12,6 +13,7 @@ export default function Layout() {
       <Header />
       <MainContainer>
         <Outlet />
+        <AlertsSection />
       </MainContainer>
       <Footer />
     </ThemeContextProvider>

@@ -1,18 +1,12 @@
 import { useMemo } from 'react';
-import {
-  FacebookIcon,
-  FooterEmailIcon,
-  InstagramIcon,
-  LinkedinIcon,
-  TwitterIcon,
-} from '@assets/icons';
+import { FacebookIcon, InstagramIcon, LinkedinIcon, TwitterIcon } from '@assets/icons';
 import Icon from '@components/ui/Icon';
-import Input from '@components/ui/Input';
 import { IconLink, Link } from '@components/ui/Link';
 import Text from '@components/ui/Text';
 import { ROUTES } from '@constants/routes';
 import { useTheme } from 'styled-components';
 import { FooterContainer, FooterSocials, FooterText } from './styled';
+import FooterEmailForm from '../FooterEmailForm';
 
 export default function Footer() {
   const { colors } = useTheme();
@@ -21,9 +15,9 @@ export default function Footer() {
 
   return (
     <FooterContainer>
-      <FooterText className='contacts'>
+      <FooterText className='contacts' $mobile={{ $direction: 'column' }}>
         <Link
-          to=''
+          to={ROUTES.contact}
           $level='heading5'
           $textTransform='uppercase'
           $color={contactsLinkColor}
@@ -50,16 +44,11 @@ export default function Footer() {
           Shipping and Returns
         </Link>
       </FooterText>
-      <Input
-        placeholder='Give an email, get the newsletter.'
-        className='email-input'
-        icon={<Icon src={<FooterEmailIcon />} $iconsize='sm' />}
-        onChange={() => {}}
-      />
+      <FooterEmailForm />
       <Text $level='heading5' $spanColor={colors.neutralColors.darkGray}>
         &#169; 2023 Shelly. <span>Terms of use</span> and <span>privacy policy</span>
       </Text>
-      <FooterSocials>
+      <FooterSocials $align='center' $justify='flex-end' $mobile={{ $justify: 'flex-start' }}>
         <span className='caption'>Follow us</span>
         <span className='placeholder' />
         <span className='socials-icons'>

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { FlexColumn } from '../Flex';
 
 export const StyledDropdown = styled.div`
   display: none;
@@ -8,12 +9,9 @@ export const StyledDropdown = styled.div`
   }
 `;
 
-export const DropdownContainer = styled.div`
-  contain: portal;
-  display: flex;
-  flex-direction: column;
+export const DropdownContainer = styled(FlexColumn)`
   height: 100%;
-  position: absolute;
+  position: fixed;
   width: 94%;
   left: 0;
   padding: 2em 3%;

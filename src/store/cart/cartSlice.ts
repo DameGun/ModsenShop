@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '@store';
+import { ToFixed } from '@utils/cart';
 import { clearCartCache, getCartCache, setCartCache } from '@utils/localStorageActions';
 import { CartCache, CartItem, CartItemQuantityAction } from 'types/cart';
 
@@ -21,22 +22,18 @@ const cartSlice = createSlice({
 
       if (existingItem) {
         existingItem.quantity += quantity;
-        existingItem.total = Number.parseFloat(
-          Number(existingItem.total + existingItem.product.price * quantity).toFixed(2)
-        );
+        existingItem.total = ToFixed(existingItem.total + existingItem.product.price * quantity);
       } else {
         state.cache.items.push(action.payload);
       }
 
-      state.cache.totalPrice = Number.parseFloat(
-        Number(state.cache.totalPrice + product.price * quantity).toFixed(2)
-      );
+      state.cache.totalPrice = ToFixed(state.cache.totalPrice + product.price * quantity);
 
       setCartCache(state.cache);
     },
     removeCartItem: (state, action: PayloadAction<number>) => {
       const deletedItem = state.cache.items.splice(action.payload, 1);
-      state.cache.totalPrice -= deletedItem[0].total;
+      state.cache.totalPrice = ToFixed(state.cache.totalPrice - deletedItem[0].total);
 
       setCartCache(state.cache);
     },
@@ -47,21 +44,13 @@ const cartSlice = createSlice({
       if (cartItem) {
         if (type == 'increment') {
           cartItem.quantity++;
-          cartItem.total = Number.parseFloat(
-            Number(cartItem.total + cartItem.product.price).toFixed(2)
-          );
-          state.cache.totalPrice = Number.parseFloat(
-            Number(state.cache.totalPrice + cartItem.product.price).toFixed(2)
-          );
+          cartItem.total = ToFixed(cartItem.total + cartItem.product.price);
+          state.cache.totalPrice = ToFixed(state.cache.totalPrice + cartItem.product.price);
         }
         if (type == 'decrement') {
           cartItem.quantity--;
-          cartItem.total = Number.parseFloat(
-            Number(cartItem.total - cartItem.product.price).toFixed(2)
-          );
-          state.cache.totalPrice = Number.parseFloat(
-            Number(state.cache.totalPrice - cartItem.product.price).toFixed(2)
-          );
+          cartItem.total = ToFixed(cartItem.total - cartItem.product.price);
+          state.cache.totalPrice = ToFixed(state.cache.totalPrice - cartItem.product.price);
         }
       }
 

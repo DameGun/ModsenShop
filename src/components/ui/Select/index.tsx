@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { SelectIcon } from '@assets/icons';
-import FilterOptionContainer from '@components/containers/FilterOptionContainer';
+import ResetButton from '@components/containers/ResetButton';
 import Icon from '@components/ui/Icon';
 import Text from '@components/ui/Text';
 import { SelectDropdown, SelectDropdownItem, SelectLabelButton } from './styled';
@@ -29,8 +29,14 @@ export default function Select({ label, values, onChange }: SelectProps) {
     handleClose();
   }
 
+  function handleReset() {
+    setCurrentValue('');
+    onChange('');
+    handleClose();
+  }
+
   return (
-    <FilterOptionContainer isVisible={Boolean(currentValue)} onClose={() => handleChange('')}>
+    <ResetButton isVisible={Boolean(currentValue)} onReset={handleReset}>
       <SelectLabelButton onClick={handleSelect} $isActive={isOpen}>
         <Text $level='bodyMedium' $textTransform='capitalize'>
           {currentValue !== '' ? currentValue : label}
@@ -53,6 +59,6 @@ export default function Select({ label, values, onChange }: SelectProps) {
           ))}
         </SelectDropdown>
       )}
-    </FilterOptionContainer>
+    </ResetButton>
   );
 }

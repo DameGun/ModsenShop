@@ -19,7 +19,6 @@ export function getCartCache() {
       parsedCache = JSON.parse(storageData);
 
       if (typeof parsedCache == 'object' && isCartCacheType(parsedCache)) {
-        console.log(parsedCache);
         return parsedCache;
       }
     } catch {

@@ -1,11 +1,10 @@
+import { FlexColumn } from '@components/ui/Flex';
 import { ImageFillContainer } from '@components/ui/Image';
 import styled from 'styled-components';
 
 import { ProductCardStyleProps } from '.';
 
-export const ProductCardContainer = styled.div<ProductCardStyleProps>`
-  display: flex;
-  flex-direction: column;
+export const ProductCardContainer = styled(FlexColumn)<ProductCardStyleProps>`
   width: ${(props) => props.theme.constants.productCardWidth[props.$cardSize]};
   place-self: center;
 
@@ -20,12 +19,9 @@ export const ProductCardContainer = styled.div<ProductCardStyleProps>`
   ${(props) => props.theme.constants.animations.opacityAnimation(1)}
 `;
 
-export const ProductCardContent = styled.div`
+export const ProductCardContent = styled(FlexColumn)`
   margin-top: ${(props) => props.theme.constants.gap.sm};
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   gap: ${(props) => props.theme.constants.gap.md};
 
   @media ${(props) => props.theme.media.mobile} {

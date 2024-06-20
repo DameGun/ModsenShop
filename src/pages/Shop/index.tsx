@@ -22,7 +22,7 @@ export default function ShopPage() {
       <SectionHeader>
         <Text $level='heading1'>Shop The Latest</Text>
       </SectionHeader>
-      <ShopContainer>
+      <ShopContainer $mobile={{ $direction: 'column' }}>
         <Sidebar />
         <Products
           $cardSize='md'

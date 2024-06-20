@@ -1,3 +1,4 @@
+import { FlexColumn } from '@components/ui/Flex';
 import IconButton from '@components/ui/IconButton';
 import styled from 'styled-components';
 
@@ -25,14 +26,10 @@ export const SidebarContainer = styled.aside`
   }
 `;
 
-export const SidebarGroup = styled.div`
-  display: flex;
-  flex-direction: column;
+export const SidebarGroup = styled(FlexColumn)`
   gap: ${(props) => props.theme.constants.gap.md};
 `;
 
-export const SidebarInnerContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+export const SidebarInnerContainer = styled(FlexColumn)`
   gap: ${(props) => props.theme.constants.gap.lg};
 `;

@@ -2,26 +2,27 @@ import { ReactNode } from 'react';
 import { CloseIcon } from '@assets/icons';
 import Icon from '@components/ui/Icon';
 import IconButton from '@components/ui/IconButton';
-import { FilterOptionChildernContainer, FilterOptionMainContainer } from './styled';
+import { ResetButtonChildrenContainer, ResetButtonContainer } from './styled';
 
-interface FilterItemProps {
+interface ResetButtonProps {
   isVisible: boolean;
-  onClose: () => void;
+  onReset: () => void;
   children: ReactNode;
 }
 
-export default function FilterOptionContainer({ children, isVisible, onClose }: FilterItemProps) {
+export default function ResetButton({ children, isVisible, onReset }: ResetButtonProps) {
   return (
-    <FilterOptionMainContainer>
-      <FilterOptionChildernContainer>{children}</FilterOptionChildernContainer>
+    <ResetButtonContainer>
+      <ResetButtonChildrenContainer>{children}</ResetButtonChildrenContainer>
       <IconButton
+        type='reset'
         $desktopVisible
         $mobileVisible
-        onClick={onClose}
+        onClick={onReset}
         className={isVisible ? 'visible' : ''}
       >
         <Icon src={<CloseIcon />} $iconsize='sm' />
       </IconButton>
-    </FilterOptionMainContainer>
+    </ResetButtonContainer>
   );
 }

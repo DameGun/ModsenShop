@@ -3,25 +3,18 @@ import { FlexColumn, FlexRow } from '../Flex';
 
 export const ModalContainer = styled.div`
   position: fixed;
-  z-index: 1;
+  z-index: ${(props) => props.theme.constants.zIndexes.modal};
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+
   background-color: ${(props) => props.theme.colors.mainColors.blackAlpha200};
 
-  @keyframes modalOverlay {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  animation-name: modalOverlay;
-  animation-duration: ${(props) => props.theme.constants.transitionTime.md};
+  ${(props) =>
+    props.theme.constants.animations.opacityAnimation(
+      Number.parseFloat(props.theme.constants.transitionTime.md)
+    )}
 `;
 
 export const ModalContent = styled.div`
@@ -30,8 +23,6 @@ export const ModalContent = styled.div`
   padding: 20px;
   width: 25%;
   border-radius: ${(props) => props.theme.constants.borderRadius.sm};
-  box-shadow: ${(props) =>
-    props.theme.constants.boxShadow + ' ' + props.theme.colors.mainColors.blackAlpha200};
 
   @media ${(props) => props.theme.media.mobile} {
     margin: 60% auto;

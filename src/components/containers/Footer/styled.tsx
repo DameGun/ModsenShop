@@ -1,3 +1,4 @@
+import { FlexRow } from '@components/ui/Flex';
 import styled from 'styled-components';
 
 export const FooterContainer = styled.footer`
@@ -45,28 +46,16 @@ export const FooterContainer = styled.footer`
   }
 `;
 
-export const FooterText = styled.div`
-  display: flex;
-  flex-direction: row;
+export const FooterText = styled(FlexRow)`
   gap: ${(props) => props.theme.constants.gap.lg};
 
   @media ${(props) => props.theme.media.mobile} {
-    flex-direction: column;
     gap: ${(props) => props.theme.constants.gap.md};
   }
 `;
 
-export const FooterSection = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-`;
-
-export const FooterSocials = styled.div`
+export const FooterSocials = styled(FlexRow)`
   grid-area: socials;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
 
   .caption,
   .placeholder {
@@ -88,8 +77,6 @@ export const FooterSocials = styled.div`
   }
 
   @media ${(props) => props.theme.media.mobile} {
-    justify-content: flex-start;
-
     .caption,
     .placeholder {
       display: block;
