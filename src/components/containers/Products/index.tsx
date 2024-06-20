@@ -1,9 +1,11 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import ErrorBoundary from '@components/common/ErrorBoundary';
 import { ProductCardStyleProps } from '@components/containers/ProductCard';
 import ProductsWrapper from '@components/containers/ProductsWrapper';
 import Text from '@components/ui/Text';
+import { useAppDispatch } from '@hooks/redux';
 import { useGetAllProductsQuery } from '@store/products/productsApi';
+import { resetSortState } from '@store/products/productsSlice';
 import { FilterParams, SortType } from 'types/product';
 import Fallback from '../Fallback';
 
@@ -18,6 +20,15 @@ export default function Products({
   $cardSize,
 }: ProductsProps) {
   const { data, ...queryProps } = useGetAllProductsQuery();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    return () => {
+      if (sort || category || searchTerm || priceSortValues) {
+        dispatch(resetSortState());
+      }
+    };
+  }, []);
 
   const Filtered = useCallback(() => {
     if (data) {

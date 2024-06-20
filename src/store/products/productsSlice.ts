@@ -31,6 +31,9 @@ const productsSlice = createSlice({
         state.priceSortValues = payload;
       }
     },
+    resetSortState: (state) => {
+      return { ...initialState, priceConstants: state.priceConstants };
+    },
   },
   extraReducers: (builder) => {
     builder.addMatcher(productsApi.endpoints.getAllProducts.matchFulfilled, (state, action) => {
@@ -55,7 +58,7 @@ const productsSlice = createSlice({
   },
 });
 
-export const { setSortOrder, setSortCategory, setSearchTerm, setPriceValues } =
+export const { setSortOrder, setSortCategory, setSearchTerm, setPriceValues, resetSortState } =
   productsSlice.actions;
 
 export const selectCurrentSortOrder = (state: RootState) => state.products.sort;
