@@ -8,6 +8,10 @@ export const StyledLogo = styled(NavLink)`
     font-family: 'Allerta Stencil';
     font-weight: 400;
     font-size: 35px;
+
+    @media ${(props) => props.theme.media.mobile} {
+      font-size: 25px;
+    }
   }
   user-select: none;
 

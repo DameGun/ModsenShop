@@ -25,10 +25,12 @@ export default function Modal({
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   function handleOpen() {
+    // document.body.style.overflowY = 'hidden';
     setIsOpen(true);
   }
 
   function handleClose() {
+    // document.body.style.overflowY = 'unset';
     setIsOpen(false);
   }
 
@@ -43,7 +45,7 @@ export default function Modal({
         {buttonText}
       </Button>
       {isOpen && (
-        <ModalContainer>
+        <ModalContainer className='block-overflow'>
           <ModalContent>
             <ModalHeader $justify='space-between'>
               {headerText && <Text $level='heading5'>{headerText}</Text>}

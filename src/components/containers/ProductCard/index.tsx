@@ -36,7 +36,7 @@ export default function ProductCard({ item, $cardSize }: ProductCardProps) {
           </AddToCartButton>
         </CardHoverSpan>
       </ProductCardImageContainer>
-      <ProductCardContent>
+      <ProductCardContent $justify='space-between'>
         <Text $level='heading3' $isTruncated>
           {item.title}
         </Text>

@@ -4,7 +4,7 @@ import { ProductCardStyleProps } from '@components/containers/ProductCard';
 import ProductsWrapper from '@components/containers/ProductsWrapper';
 import Text from '@components/ui/Text';
 import { useGetAllProductsQuery } from '@store/products/productsApi';
-import { FilterParams } from 'types/product';
+import { FilterParams, SortType } from 'types/product';
 import Fallback from '../Fallback';
 
 export interface ProductsProps extends FilterParams, ProductCardStyleProps {}
@@ -36,7 +36,7 @@ export default function Products({
             : product
         )
         .sort((a, b) =>
-          sort == 'asc' ? a.price - b.price : sort == 'desc' ? b.price - a.price : 0
+          sort == SortType.Asc ? a.price - b.price : sort == SortType.Desc ? b.price - a.price : 0
         );
 
       if (result.length) {

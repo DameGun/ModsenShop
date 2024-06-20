@@ -1,3 +1,4 @@
+import { FlexRow } from '@components/ui/Flex';
 import styled, { css } from 'styled-components';
 
 const sliderThumbStyle = css`
@@ -30,11 +31,8 @@ export const StyledRangeInput = styled.input.attrs({
   }
 `;
 
-export const SliderTextContainer = styled.div`
+export const SliderTextContainer = styled(FlexRow)`
   margin-top: ${(props) => props.theme.constants.gap.md};
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 `;
 
 export const SliderTrack = styled.div`

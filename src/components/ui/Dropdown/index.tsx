@@ -6,9 +6,10 @@ import { DropdownContainer, StyledDropdown } from './styled';
 
 interface DropdownProps {
   children: React.ReactNode;
+  className?: string;
 }
 
-export default function Dropdown({ children }: DropdownProps) {
+export default function Dropdown({ children, className }: DropdownProps) {
   const [open, setOpen] = React.useState<boolean>(false);
 
   function handleDropdown() {
@@ -25,7 +26,7 @@ export default function Dropdown({ children }: DropdownProps) {
         <Icon src={open ? <CloseIcon /> : <DropdownIcon />} $iconsize='lg' />
       </IconButton>
       {open && (
-        <DropdownContainer>
+        <DropdownContainer className={className}>
           {React.Children.map(children, (child) => {
             if (!React.isValidElement(child)) {
               return child;

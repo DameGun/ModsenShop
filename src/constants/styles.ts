@@ -25,18 +25,23 @@ export const BORDER_RADIUS_LG = '16px';
 export const BUTTON_PADDING_X = '0.5em';
 export const BUTTON_SM_PADDING_Y = '0.8em';
 export const BUTTON_MD_PADDING_Y = '3em';
+export const BUTTON_BORDER_WIDTH = '2px';
 
 export const SLIDER_HEIGHT = '0.1em';
 export const SLIDER_THUMB_HEIGHT = '0.8em';
 export const SLIDER_THUMB_WIDTH = '0.2em';
 export const SLIDER_STEP = 2;
 
+export const ALERTS_SECTION_Z_INDEX = 25;
 export const HEADER_MENU_Z_INDEX = 20;
 export const FILTER_MENU_Z_INDEX = 15;
+export const MODAL_Z_INDEX = 30;
 
 export const ICON_SIZE_SM = '1em';
 export const ICON_SIZE_MD = '1.5em';
 export const ICON_SIZE_LG = '2em';
+
+export const ALERT_DEFAULT_LIFETIME_MS = 5000;
 
 export const OPACITY_ANIMATION = (transitionTime: number) => `
  @keyframes appear {
@@ -70,5 +75,6 @@ export const CommonFonts = {
   heading5: 'h5',
   bodyLarge: 'p',
   bodyMedium: 'p',
+  formError: 'p',
   ...MobileFonts,
 };

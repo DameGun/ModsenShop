@@ -1,11 +1,8 @@
-import { GAP_SM, GAP_XL } from '@constants/styles';
+import { FlexRow } from '@components/ui/Flex';
 import styled from 'styled-components';
 
-export const ShopContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: ${GAP_SM};
+export const ShopContainer = styled(FlexRow)`
+  gap: ${(props) => props.theme.constants.gap.sm};
 
   & > :nth-child(2) {
     flex: 4;
@@ -17,7 +14,6 @@ export const ShopContainer = styled.div`
   }
 
   @media ${(props) => props.theme.media.mobile} {
-    flex-direction: column;
-    gap: ${GAP_XL};
+    gap: ${(props) => props.theme.constants.gap.xl};
   }
 `;

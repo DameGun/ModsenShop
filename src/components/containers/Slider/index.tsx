@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import FilterOptionContainer from '@components/containers/FilterOptionContainer';
+import ResetButton from '@components/containers/ResetButton';
 import IconButton from '@components/ui/IconButton';
 import Text from '@components/ui/Text';
 import { useTheme } from 'styled-components';
@@ -31,7 +31,7 @@ export default function Slider({ minValue, maxValue, labelText, onSubmit }: Rang
     }
   }
 
-  function handleOnClose() {
+  function handleReset() {
     setLeftValue(minValue);
     setRightValue(maxValue);
     onSubmit([minValue, maxValue]);
@@ -42,9 +42,9 @@ export default function Slider({ minValue, maxValue, labelText, onSubmit }: Rang
   }
 
   return (
-    <FilterOptionContainer
+    <ResetButton
       isVisible={leftValue !== minValue || rightValue !== maxValue}
-      onClose={handleOnClose}
+      onReset={handleReset}
     >
       <SliderTrack>
         <SliderRange
@@ -72,7 +72,7 @@ export default function Slider({ minValue, maxValue, labelText, onSubmit }: Rang
           onChange={handleRightChange}
         />
       </SliderTrack>
-      <SliderTextContainer>
+      <SliderTextContainer $justify='space-between'>
         <Text $level='bodyMedium'>
           {labelText}${leftValue} - ${rightValue}
         </Text>
@@ -82,6 +82,6 @@ export default function Slider({ minValue, maxValue, labelText, onSubmit }: Rang
           </Text>
         </IconButton>
       </SliderTextContainer>
-    </FilterOptionContainer>
+    </ResetButton>
   );
 }

@@ -16,6 +16,7 @@ interface CarouselParams {
 interface ButtonParams {
   paddingX: string;
   paddingY: ThemeSizes;
+  borderWidth: string;
 }
 
 interface SliderParams {
@@ -28,6 +29,8 @@ interface SliderParams {
 interface ZIndexValues {
   headerMenu: number;
   filterMenu: number;
+  alertsSection: number;
+  modal: number;
 }
 
 interface Animations {

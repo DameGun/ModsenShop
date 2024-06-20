@@ -1,7 +1,10 @@
 export type Category = string;
 
 export type PriceSortType = [number, number];
-export type SortType = 'desc' | 'asc';
+export enum SortType {
+  Asc = 'asc',
+  Desc = 'desc',
+}
 
 export type FilterParams = {
   sort?: SortType;

@@ -17,6 +17,7 @@ export default {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      publicPath: '/',
       template: './public/index.html',
     }),
     new DotenvWebpackPlugin({

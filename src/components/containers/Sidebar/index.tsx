@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { FilterIcon, SearchIcon } from '@assets/icons';
-import FilterOptionContainer from '@components/containers/FilterOptionContainer';
 import Slider from '@components/containers/Slider';
 import Icon from '@components/ui/Icon';
 import IconButton from '@components/ui/IconButton';
@@ -10,7 +9,6 @@ import Text from '@components/ui/Text';
 import { useAppDispatch, useAppSelector } from '@hooks/redux';
 import { useGetAllCategoriesQuery } from '@store/products/productsApi';
 import {
-  selectCurrentSearchTerm,
   selectPriceConstants,
   setPriceValues,
   setSearchTerm,
@@ -18,23 +16,27 @@ import {
   setSortOrder,
 } from '@store/products/productsSlice';
 import { useTheme } from 'styled-components';
+import { SortType } from 'types/product';
 import { SidebarContainer, SidebarGroup, SidebarInnerContainer } from './styled';
 
 export default function Sidebar() {
   const { colors } = useTheme();
   const { data } = useGetAllCategoriesQuery();
   const priceConstants = useAppSelector(selectPriceConstants);
-  const searchTerm = useAppSelector(selectCurrentSearchTerm);
   const dispatch = useAppDispatch();
 
-  const [isOpen, setIsOpen] = useState<boolean>(true);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   function handleSideBar() {
     setIsOpen(!isOpen);
   }
 
-  function handleSearchTerm(value: string) {
-    dispatch(setSearchTerm(value));
+  function handleSearchTerm(event: React.ChangeEvent<HTMLInputElement> | string) {
+    if (typeof event == 'string') {
+      dispatch(setSearchTerm(''));
+    } else {
+      dispatch(setSearchTerm(event.target.value));
+    }
   }
 
   function handleSortCategory(value: string) {
@@ -42,7 +44,7 @@ export default function Sidebar() {
   }
 
   function handleSortOrder(value: string) {
-    dispatch(setSortOrder(value));
+    dispatch(setSortOrder(value as SortType));
   }
 
   function handlePriceValues(value: [number, number]) {
@@ -58,19 +60,15 @@ export default function Sidebar() {
         </Text>
       </IconButton>
       <SidebarInnerContainer className={isOpen ? 'visible' : ''}>
-        <FilterOptionContainer
-          isVisible={Boolean(searchTerm)}
-          onClose={() => dispatch(setSearchTerm(''))}
-        >
-          <Input
-            placeholder='Search...'
-            icon={<Icon src={<SearchIcon />} />}
-            onChange={handleSearchTerm}
-          />
-        </FilterOptionContainer>
+        <Input
+          name='search'
+          placeholder='Search...'
+          icon={<Icon src={<SearchIcon />} />}
+          onChange={handleSearchTerm}
+        />
         <SidebarGroup>
           {data && <Select label='Shop By' values={data} onChange={handleSortCategory} />}
-          <Select label='Sort By' values={['asc', 'desc']} onChange={handleSortOrder} />
+          <Select label='Sort By' values={Object.values(SortType)} onChange={handleSortOrder} />
         </SidebarGroup>
         {priceConstants && (
           <Slider

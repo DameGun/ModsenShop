@@ -1,7 +1,8 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components';
+import { IconStyleProps } from '../Icon/styled';
 
-export interface IconButtonProps {
+export interface IconButtonProps extends Omit<IconStyleProps, '$iconSize'> {
   className?: string;
   children: ReactNode;
   $desktopVisible?: boolean;
