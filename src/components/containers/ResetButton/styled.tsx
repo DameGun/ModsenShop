@@ -1,12 +1,9 @@
+import { FlexRow } from '@components/ui/Flex';
 import IconButton from '@components/ui/IconButton';
 import styled from 'styled-components';
 
-export const FilterOptionMainContainer = styled.div`
+export const ResetButtonContainer = styled(FlexRow)`
   position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
   gap: ${(props) => props.theme.constants.gap.md};
 
   & > ${IconButton} {
@@ -19,6 +16,6 @@ export const FilterOptionMainContainer = styled.div`
   }
 `;
 
-export const FilterOptionChildernContainer = styled.div`
+export const ResetButtonChildrenContainer = styled.div`
   width: 100%;
 `;

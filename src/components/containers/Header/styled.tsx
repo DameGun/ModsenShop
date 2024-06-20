@@ -75,6 +75,7 @@ export const Switch = styled.div`
 `;
 
 export const HoverableNavLink = styled(NavLink)`
+  position: relative;
   padding: 0.5em;
   border-bottom: 2px solid transparent;
   transition: border-color ${(props) => props.theme.constants.transitionTime.md};
@@ -83,4 +84,18 @@ export const HoverableNavLink = styled(NavLink)`
   &.active {
     border-bottom-color: ${(props) => props.theme.colors.mainColors.black};
   }
+`;
+
+export const CartItemsBadge = styled.span`
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  border-radius: 50%;
+  width: 50%;
+  padding: 0.1em;
+  border: 0.1em solid ${(props) => props.theme.colors.mainColors.black};
+  background-color: ${(props) => props.theme.colors.mainColors.white};
+  text-align: center;
+
+  font-weight: ${(props) => props.theme.constants.fontWeight.bold};
 `;

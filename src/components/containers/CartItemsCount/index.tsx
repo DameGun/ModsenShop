@@ -18,13 +18,13 @@ export default function CartItemsCount({
 }: CartItemsCountProps) {
   return (
     <FlexRow>
-      <IconButton $mobileVisible $desktopVisible onClick={handleDecrement}>
+      <IconButton $mobileVisible $desktopVisible onClick={handleDecrement} $hoverable>
         <Icon src={<MinusIcon />} />
       </IconButton>
       <CountDisplay>
         <Text $level='heading5'>{quantity}</Text>
       </CountDisplay>
-      <IconButton $mobileVisible $desktopVisible onClick={handleIncrement}>
+      <IconButton $mobileVisible $desktopVisible onClick={handleIncrement} $hoverable>
         <Icon src={<PlusIcon />} />
       </IconButton>
     </FlexRow>

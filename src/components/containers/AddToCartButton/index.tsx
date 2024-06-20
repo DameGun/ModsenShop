@@ -1,7 +1,9 @@
 import { Fragment, ReactNode, useState } from 'react';
 import Button from '@components/ui/Button';
 import { useAppDispatch } from '@hooks/redux';
+import { addAlert, removeAlert } from '@store/alerts/alertsSlice';
 import { addCartItem } from '@store/cart/cartSlice';
+import { createAlert } from '@utils/alert';
 import { CartItem } from 'types/cart';
 import { Product } from 'types/product';
 import { CardButtonContainer } from './styled';
@@ -28,6 +30,14 @@ export default function AddToCartButton({
       total: count * product.price,
     };
     dispatch(addCartItem(newItem));
+
+    createAlert({
+      name: `Added (${count})`,
+      text: product.title,
+      type: 'success',
+      createCallback: (alert) => dispatch(addAlert(alert)),
+      timeoutCallback: (alert) => dispatch(removeAlert(alert.id)),
+    });
   }
 
   function handleIncrement() {

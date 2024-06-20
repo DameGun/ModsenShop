@@ -6,7 +6,7 @@ export interface IconStyleProps {
   $hoverable?: boolean;
 }
 
-export const StyledIcon = styled.div<IconStyleProps>`
+export const StyledIcon = styled.span<IconStyleProps>`
   display: flex;
   align-items: start;
   filter: invert(${(props) => (props.theme.mode == 'DARK' ? 1 : 0)});

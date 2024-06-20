@@ -1,39 +1,7 @@
-import {
-  BASIC_BOX_SHADOW_PARAMS,
-  BORDER_RADIUS_LG,
-  BORDER_RADUIS_MD,
-  BORDER_RADUIS_SM,
-  BUTTON_MD_PADDING_Y,
-  BUTTON_PADDING_X,
-  BUTTON_SM_PADDING_Y,
-  CAROUSEL_ANIMATION_DURATION,
-  CAROUSEL_LENGTH,
-  CAROUSEL_MAX_HEIGHT,
-  FILTER_MENU_Z_INDEX,
-  FontWeight,
-  GAP_LG,
-  GAP_MD,
-  GAP_SM,
-  GAP_XL,
-  HEADER_MENU_Z_INDEX,
-  ICON_SIZE_LG,
-  ICON_SIZE_MD,
-  ICON_SIZE_SM,
-  MOBILE_WIDTH,
-  OPACITY_ANIMATION,
-  PRODUCT_CARD_WIDTH_LG,
-  PRODUCT_CARD_WIDTH_MD,
-  PRODUCT_CARD_WIDTH_SM,
-  SLIDER_HEIGHT,
-  SLIDER_STEP,
-  SLIDER_THUMB_HEIGHT,
-  SLIDER_THUMB_WIDTH,
-  TRANSITION_TIME_MD,
-  TRANSITION_TIME_SM,
-} from '@constants/styles';
+import { FontWeight, MOBILE_WIDTH } from '@constants/styles';
 import { DefaultTheme } from 'styled-components';
 import { ThemeColors, ThemeFonts, ThemeMedia } from 'types/theme';
-import { ThemeConstants } from 'types/themeConstants';
+import { baseConstants } from './constants';
 
 const baseColors: Pick<ThemeColors, 'serviceColors'> = {
   serviceColors: {
@@ -82,6 +50,10 @@ const baseFonts: ThemeFonts = {
       size: '12px',
       lineHeight: '20px',
     },
+    formError: {
+      size: '12px',
+      weight: FontWeight.regular,
+    },
   },
   mobile: {
     heading1: {
@@ -98,61 +70,6 @@ const baseFonts: ThemeFonts = {
     bodySmall: {
       size: '12px',
     },
-  },
-};
-
-const baseConstants: ThemeConstants = {
-  productCardWidth: {
-    sm: PRODUCT_CARD_WIDTH_SM,
-    md: PRODUCT_CARD_WIDTH_MD,
-    lg: PRODUCT_CARD_WIDTH_LG,
-  },
-  iconSize: {
-    sm: ICON_SIZE_SM,
-    md: ICON_SIZE_MD,
-    lg: ICON_SIZE_LG,
-  },
-  gap: {
-    sm: GAP_SM,
-    md: GAP_MD,
-    lg: GAP_LG,
-    xl: GAP_XL,
-  },
-  transitionTime: {
-    sm: TRANSITION_TIME_SM,
-    md: TRANSITION_TIME_MD,
-  },
-  carousel: {
-    maxHeight: CAROUSEL_MAX_HEIGHT,
-    length: CAROUSEL_LENGTH,
-    animationDuration: CAROUSEL_ANIMATION_DURATION,
-  },
-  boxShadow: BASIC_BOX_SHADOW_PARAMS,
-  borderRadius: {
-    sm: BORDER_RADUIS_SM,
-    md: BORDER_RADUIS_MD,
-    lg: BORDER_RADIUS_LG,
-  },
-  button: {
-    paddingX: BUTTON_PADDING_X,
-    paddingY: {
-      sm: BUTTON_SM_PADDING_Y,
-      md: BUTTON_MD_PADDING_Y,
-    },
-  },
-  slider: {
-    height: SLIDER_HEIGHT,
-    thumbHeight: SLIDER_THUMB_HEIGHT,
-    thumbWidth: SLIDER_THUMB_WIDTH,
-    step: SLIDER_STEP,
-  },
-  zIndexes: {
-    headerMenu: HEADER_MENU_Z_INDEX,
-    filterMenu: FILTER_MENU_Z_INDEX,
-  },
-  fontWeight: FontWeight,
-  animations: {
-    opacityAnimation: OPACITY_ANIMATION,
   },
 };
 

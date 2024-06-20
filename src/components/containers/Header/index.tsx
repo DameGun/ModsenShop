@@ -1,16 +1,27 @@
-import { CartIcon, SearchIcon } from '@assets/icons';
+import { CartIcon } from '@assets/icons';
 import Logo from '@components/containers/Logo';
 import Dropdown from '@components/ui/Dropdown';
 import Icon from '@components/ui/Icon';
 import { Link } from '@components/ui/Link';
+import Text from '@components/ui/Text';
 import { ROUTES } from '@constants/routes';
 import { useAppDispatch, useAppSelector } from '@hooks/redux';
+import { selectCartCache } from '@store/cart/cartSlice';
 import { changeTheme, selectCurrentTheme } from '@store/theme/themeSlice';
-import { HoverableNavLink, Nav, StyledHeader, Switch, SwitchButton, ThemeSwitch } from './styled';
+import {
+  CartItemsBadge,
+  HoverableNavLink,
+  Nav,
+  StyledHeader,
+  Switch,
+  SwitchButton,
+  ThemeSwitch,
+} from './styled';
 
 export default function Header() {
   const dispatch = useAppDispatch();
   const currentColorMode = useAppSelector(selectCurrentTheme);
+  const { items } = useAppSelector(selectCartCache);
 
   function handleChangeTheme() {
     dispatch(changeTheme());
@@ -29,13 +40,15 @@ export default function Header() {
           />
           <Switch />
         </ThemeSwitch>
-        <HoverableNavLink to='search'>
-          <Icon src={<SearchIcon />} />
-        </HoverableNavLink>
         <HoverableNavLink to={ROUTES.cart} className='nav-cart'>
           <Icon src={<CartIcon />} />
+          {items.length > 0 && (
+            <CartItemsBadge>
+              <Text $level='bodySmall'>{items.length}</Text>
+            </CartItemsBadge>
+          )}
         </HoverableNavLink>
-        <Dropdown>
+        <Dropdown className='block-overflow'>
           <Link $level='heading1' to={ROUTES.home}>
             Home
           </Link>
@@ -51,7 +64,7 @@ export default function Header() {
           <Link $level='heading1' to=''>
             Help
           </Link>
-          <Link $level='heading1' to=''>
+          <Link $level='heading1' to={ROUTES.contact}>
             Contact
           </Link>
           <Link $level='heading1' to=''>

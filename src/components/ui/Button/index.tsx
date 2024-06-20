@@ -5,7 +5,7 @@ interface ButtonProps {
 }
 
 const smButtonStyles = css`
-  border-width: 2px;
+  border-width: ${(props) => props.theme.constants.button.borderWidth};
   border-color: ${(props) => props.theme.colors.mainColors.white};
   color: ${(props) => props.theme.colors.mainColors.white};
   background-color: transparent;
@@ -21,7 +21,7 @@ const smButtonStyles = css`
 `;
 
 const mdButtonStyles = css`
-  border-width: 2px;
+  border-width: ${(props) => props.theme.constants.button.borderWidth};
   border-color: ${(props) => props.theme.colors.mainColors.black};
   color: ${(props) => props.theme.colors.mainColors.black};
   background-color: transparent;

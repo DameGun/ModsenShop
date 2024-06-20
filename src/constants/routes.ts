@@ -3,6 +3,7 @@ export const ROUTES = {
   shop: '/shop',
   products: (id: string) => `/products/${id}`,
   cart: '/cart',
+  contact: '/contact',
 
   linkedIn: 'https://www.linkedin.com',
   facebook: 'https://www.facebook.com',
